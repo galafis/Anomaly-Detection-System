@@ -4,7 +4,12 @@
 
 **Autor:** Gabriel Demetrios Lafis
 
-![Build Status](https://img.shields.io/github/actions/workflow/status/galafis/Anomaly-Detection-System/ci-cd.yml?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-2.3.0-green?style=for-the-badge&logo=flask&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3.0-orange?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-2.0.0-purple?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-1.24.0-blue?style=for-the-badge&logo=numpy&logoColor=white)
+![XGBoost](https://img.shields.io/badge/XGBoost-1.7.0-red?style=for-the-badge&logo=xgboost&logoColor=white)
 ![License](https://img.shields.io/github/license/galafis/Anomaly-Detection-System?style=for-the-badge)
 ![Stars](https://img.shields.io/github/stars/galafis/Anomaly-Detection-System?style=for-the-badge)
 

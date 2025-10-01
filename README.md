@@ -1,237 +1,216 @@
-# Anomaly-Detection-System
+# Anomaly Detection System API
 
-## English
-
-### Overview
-Advanced Anomaly-Detection-System with comprehensive functionality and modern technology stack. Features multiple programming languages, interactive web interfaces, and advanced analytics capabilities for professional-grade solutions.
-
-### Author
-**Gabriel Demetrios Lafis**
-- Email: gabrieldemetrios@gmail.com
-- LinkedIn: [Gabriel Demetrios Lafis](https://www.linkedin.com/in/gabriel-demetrios-lafis-62197711b)
-- GitHub: [galafis](https://github.com/galafis)
-
-### Technologies Used
-- **Backend**: Python, Flask, FastAPI, SQLite
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Analytics**: R, ggplot2, dplyr, statistical modeling
-- **Styling**: CSS Grid, Flexbox, animations, responsive design
-- **Modern Features**: Async/await, Web APIs, ES6 classes
-- **Data Processing**: pandas, numpy, scikit-learn
-- **Visualization**: Interactive charts, real-time dashboards
-
-### Features
-
-#### Core Functionality
-- **Advanced Processing**: High-performance algorithms and data processing
-- **Real-time Analytics**: Live data analysis and visualization
-- **Interactive Interface**: Modern web interface with responsive design
-- **Statistical Analysis**: Comprehensive R-based analytics and reporting
-- **Scalable Architecture**: Built for enterprise-level performance
-
-#### Web Interface
-- **Modern UI**: HTML5 semantic markup with accessibility features
-- **Responsive Design**: CSS3 with Grid, Flexbox, and mobile optimization
-- **Interactive Elements**: JavaScript ES6+ with modern web APIs
-- **Real-time Updates**: Dynamic content and live data visualization
-- **Professional Styling**: Custom CSS animations and transitions
-
-#### Analytics & Reporting
-- **R Integration**: Advanced statistical analysis and data visualization
-- **Data Processing**: Automated data cleaning and transformation
-- **Visualization**: Interactive charts and comprehensive dashboards
-- **Performance Metrics**: Real-time monitoring and analytics
-- **Export Options**: Multiple format support for reports and data
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/galafis/Anomaly-Detection-System.git
-cd Anomaly-Detection-System
-
-# Python setup
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-
-# R setup (install required packages)
-Rscript -e "install.packages(c('ggplot2', 'dplyr', 'corrplot', 'plotly'))"
-
-# Run the application
-python app.py
-```
-
-### Web Interface Usage
-
-1. **Start the Application**
-   ```bash
-   python app.py
-   # Open http://localhost:5000 in your browser
-   ```
-
-2. **Access Web Interface**
-   - Open `index.html` in your browser for the frontend interface
-   - Interactive dashboard with real-time functionality
-   - Responsive design works on desktop and mobile devices
-
-3. **Run Analytics**
-   ```r
-   # Load R analytics
-   source('analytics.R')
-   
-   # Create analyzer instance
-   analyzer <- DataAnalyzer$new()
-   
-   # Load and analyze data
-   analyzer$load_data('data.csv')
-   analyzer$analyze()
-   analyzer$generate_report()
-   ```
-
-### File Structure
-
-```
-Anomaly-Detection-System/
-├── app.py              # Main Python application
-├── requirements.txt    # Python dependencies
-├── index.html         # Web interface
-├── styles.css         # Modern CSS3 styling
-├── app.js            # JavaScript functionality
-├── analytics.R       # R statistical analysis
-├── README.md         # This documentation
-└── data/             # Data files and samples
-```
-
-### API Endpoints
-
-```python
-# Main application endpoints
-GET  /                 # Web interface
-POST /api/process      # Data processing
-GET  /api/analytics    # Analytics results
-POST /api/upload       # File upload
-GET  /api/status       # System status
-```
-
-### Configuration
-
-```python
-# config.py
-APP_CONFIG = {
-    'debug': True,
-    'host': '0.0.0.0',
-    'port': 5000,
-    'max_file_size': '16MB'
-}
-
-ANALYTICS_CONFIG = {
-    'enable_r_integration': True,
-    'auto_visualization': True,
-    'export_formats': ['json', 'csv', 'pdf']
-}
-```
-
-### Performance Features
-- **Multi-threading**: Parallel processing for improved performance
-- **Caching**: Intelligent caching for faster response times
-- **Memory Optimization**: Efficient memory usage and management
-- **Scalability**: Horizontal scaling support for enterprise use
+**Author**: Gabriel Demetrios Lafis
 
 ---
 
-## Português
+## 🇬🇧 English
 
-### Visão Geral
-Anomaly-Detection-System avançado com funcionalidade abrangente e stack de tecnologia moderna. Apresenta múltiplas linguagens de programação, interfaces web interativas e capacidades de análise avançadas para soluções de nível profissional.
+### 📋 Description
 
-### Autor
-**Gabriel Demetrios Lafis**
-- Email: gabrieldemetrios@gmail.com
-- LinkedIn: [Gabriel Demetrios Lafis](https://www.linkedin.com/in/gabriel-demetrios-lafis-62197711b)
-- GitHub: [galafis](https://github.com/galafis)
+This project provides a robust **Anomaly Detection System** exposed as a RESTful API. Built with Python and Flask, it leverages a pre-trained XGBoost regression model to identify anomalies in time-series data. The system is designed to receive data points, predict expected values, and flag significant deviations as anomalies.
 
-### Tecnologias Utilizadas
-- **Backend**: Python, Flask, FastAPI, SQLite
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Análises**: R, ggplot2, dplyr, modelagem estatística
-- **Estilização**: CSS Grid, Flexbox, animações, design responsivo
-- **Recursos Modernos**: Async/await, Web APIs, classes ES6
-- **Processamento de Dados**: pandas, numpy, scikit-learn
-- **Visualização**: Gráficos interativos, dashboards em tempo real
+This solution is ideal for scenarios requiring real-time monitoring and alerting, such as fraud detection, system health monitoring, or identifying outliers in business metrics. The project includes a complete, functional API and detailed instructions for setup and usage.
 
-### Funcionalidades
+### 🏛️ Architecture
 
-#### Funcionalidade Principal
-- **Processamento Avançado**: Algoritmos de alta performance e processamento de dados
-- **Análises em Tempo Real**: Análise e visualização de dados ao vivo
-- **Interface Interativa**: Interface web moderna com design responsivo
-- **Análise Estatística**: Análises abrangentes baseadas em R e relatórios
-- **Arquitetura Escalável**: Construído para performance de nível empresarial
+The system follows a simple yet powerful architecture. A Flask web server exposes an API endpoint that receives data. This data is then processed by a pre-trained XGBoost model, which returns a prediction. The core logic compares this prediction to the actual value to detect anomalies.
 
-### Instalação
-
-```bash
-# Clonar o repositório
-git clone https://github.com/galafis/Anomaly-Detection-System.git
-cd Anomaly-Detection-System
-
-# Configuração Python
-python -m venv venv
-source venv/bin/activate  # No Windows: venv\Scripts\activate
-pip install -r requirements.txt
-
-# Configuração R (instalar pacotes necessários)
-Rscript -e "install.packages(c('ggplot2', 'dplyr', 'corrplot', 'plotly'))"
-
-# Executar a aplicação
-python app.py
+```mermaid
+graph TD
+    A[Client] -- JSON Request --> B{Flask API Server};
+    B -- Load Model --> C[XGBoost Model (.pkl)];
+    B -- Process Data & Predict --> D[Anomaly Detection Logic];
+    D -- Anomaly? --> E{JSON Response};
+    B -- Sends Response --> A;
 ```
 
-### Uso da Interface Web
+### ✨ Features
 
-1. **Iniciar a Aplicação**
-   ```bash
-   python app.py
-   # Abrir http://localhost:5000 no navegador
-   ```
+- **RESTful API**: Simple and standard interface for integration.
+- **Machine Learning Model**: Uses a powerful XGBoost model for accurate anomaly detection.
+- **Real-time Prediction**: Capable of processing requests and providing instant feedback.
+- **Easy to Deploy**: Can be quickly deployed using Docker or standard Python environments.
+- **Scalable**: Designed to be scaled horizontally behind a load balancer.
 
-2. **Acessar Interface Web**
-   - Abrir `index.html` no navegador para a interface frontend
-   - Dashboard interativo com funcionalidade em tempo real
-   - Design responsivo funciona em desktop e dispositivos móveis
+### 🛠️ Tech Stack
 
-### Recursos de Performance
-- **Multi-threading**: Processamento paralelo para melhor performance
-- **Cache**: Cache inteligente para tempos de resposta mais rápidos
-- **Otimização de Memória**: Uso eficiente de memória e gerenciamento
-- **Escalabilidade**: Suporte a escalonamento horizontal para uso empresarial
+- **Backend**: Python, Flask
+- **Machine Learning**: Scikit-learn, XGBoost, Pandas
+- **Environment**: Virtualenv/Pip
 
-### Licença
-MIT License
+### 🚀 Getting Started
 
-### Contribuições
-Contribuições são bem-vindas! Por favor, abra uma issue ou envie um pull request.
+#### Prerequisites
 
-### Contato
-Para dúvidas ou suporte, entre em contato através do email ou LinkedIn mencionados acima.
+- **Python 3.8+**
+- **Pip** package manager
 
+#### Installation & Configuration
 
-## 📋 Descrição
+1.  **Clone the Repository**:
+    ```bash
+    git clone https://github.com/galafis/Anomaly-Detection-System.git
+    cd Anomaly-Detection-System
+    ```
 
-Descreva aqui o conteúdo desta seção.
+2.  **Set up a Virtual Environment**:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows use: venv\Scripts\activate
+    ```
 
+3.  **Install Dependencies**:
+    The original `requirements.txt` contains outdated packages. Please use the updated `requirements_fixed.txt` for a stable installation.
+    ```bash
+    pip install -r requirements_fixed.txt
+    ```
 
-## 📦 Instalação
+4.  **Run the Application**:
+    ```bash
+    python app.py
+    ```
+    The API will be running at `http://127.0.0.1:5000`.
 
-Descreva aqui o conteúdo desta seção.
+### 💻 API Usage
 
+To use the API, send a `POST` request to the `/predict` endpoint with a JSON payload containing the features for prediction.
 
-## 💻 Uso
+**Endpoint**: `POST /predict`
 
-Descreva aqui o conteúdo desta seção.
+**Request Body**:
 
+```json
+{
+    "features": [
+        0.5, 1.2, -0.3, 4.5, ... // Array of numerical features
+    ]
+}
+```
 
-## 📄 Licença
+**Example with cURL**:
 
-Descreva aqui o conteúdo desta seção.
+```bash
+cURL -X POST http://127.0.0.1:5000/predict \
+-H "Content-Type: application/json" \
+-d '{"features": [0.5, 1.2, -0.3, 4.5, 2.1, -1.0, 3.3, -2.5, 0.8, 1.5, -0.7, 5.0, 2.3, -1.2, 3.8, -2.9, 0.9, 1.8, -0.9, 5.5, 2.5, -1.5, 4.0, -3.0, 1.0, 2.0, -1.0, 6.0, 2.8, -1.8, 4.2, -3.2, 1.2, 2.2, -1.2, 6.5, 3.0, -2.0, 4.5, -3.5, 1.5, 2.5, -1.5, 7.0, 3.2, -2.2, 4.8, -3.8, 1.8, 2.8, -1.8, 7.5, 3.5, -2.5, 5.0, -4.0, 2.0, 3.0, -2.0, 8.0, 3.8, -2.8, 5.2, -4.2, 2.2, 3.2, -2.2, 8.5, 4.0, -3.0, 5.5, -4.5, 2.5, 3.5, -2.5, 9.0, 4.2, -3.2, 5.8, -4.8, 2.8, 3.8, -2.8, 9.5, 4.5, -3.5, 6.0, -5.0, 3.0, 4.0, -3.0, 10.0, 4.8, -3.8, 6.2, -5.2, 3.2, 4.2, -3.2, 10.5, 5.0, -4.0, 6.5, -5.5, 3.5, 4.5, -3.5, 11.0, 5.2, -4.2, 6.8, -5.8, 3.8, 4.8, -3.8, 11.5, 5.5, -4.5, 7.0, -6.0, 4.0, 5.0, -4.0, 12.0, 5.8, -4.8, 7.2, -6.2, 4.2, 5.2, -4.2, 12.5, 6.0, -5.0, 7.5, -6.5, 4.5, 5.5, -4.5, 13.0, 6.2, -5.2, 7.8, -6.8, 4.8, 5.8, -4.8, 13.5, 6.5, -5.5, 8.0, -7.0, 5.0, 6.0, -5.0, 14.0, 6.8, -5.8, 8.2, -7.2, 5.2, 6.2, -5.2, 14.5, 7.0, -6.0, 8.5, -7.5, 5.5, 6.5, -5.5, 15.0, 7.2, -6.2, 8.8, -7.8, 5.8, 6.8, -5.8, 15.5, 7.5, -6.5, 9.0, -8.0, 6.0, 7.0, -6.0, 16.0, 7.8, -6.8, 9.2, -8.2, 6.2, 7.2, -6.2, 16.5, 8.0, -7.0, 9.5, -8.5, 6.5, 7.5, -6.5, 17.0, 8.2, -7.2, 9.8, -8.8, 6.8, 7.8, -6.8, 17.5, 8.5, -7.5, 10.0, -9.0, 7.0, 8.0, -7.0, 18.0, 8.8, -7.8, 10.2, -9.2, 7.2, 8.2, -7.2, 18.5, 9.0, -8.0, 10.5, -9.5, 7.5, 8.5, -7.5, 19.0, 9.2, -8.2, 10.8, -9.8, 7.8, 8.8, -7.8, 19.5, 9.5, -8.5, 11.0, -10.0, 8.0, 9.0, -8.0, 20.0, 9.8, -8.8, 11.2, -10.2, 8.2, 9.2, -8.2, 20.5, 10.0, -9.0, 11.5, -10.5, 8.5, 9.5, -8.5, 21.0, 10.2, -9.2, 11.8, -10.8, 8.8, 9.8, -8.8, 21.5, 10.5, -9.5, 12.0, -11.0, 9.0, 10.0, -9.0, 22.0, 10.8, -9.8, 12.2, -11.2, 9.2, 10.2, -9.2, 22.5, 11.0, -10.0, 12.5, -11.5, 9.5, 10.5, -9.5, 23.0, 11.2, -10.2, 12.8, -11.8, 9.8, 10.8, -9.8, 23.5, 11.5, -10.5, 13.0, -12.0, 10.0, 11.0, -10.0, 24.0, 11.8, -10.8, 13.2, -12.2, 10.2, 11.2, -10.2, 24.5, 12.0, -11.0, 13.5, -12.5, 10.5, 11.5, -10.5, 25.0, 12.2, -11.2, 13.8, -12.8, 10.8, 11.8, -10.8, 25.5, 12.5, -11.5, 14.0, -13.0, 11.0, 12.0, -11.0, 26.0, 12.8, -11.8, 14.2, -13.2, 11.2, 12.2, -11.2, 26.5, 13.0, -12.0, 14.5, -13.5, 11.5, 12.5, -11.5, 27.0, 13.2, -12.2, 14.8, -13.8, 11.8, 12.8, -11.8, 27.5, 13.5, -12.5, 15.0, -14.0, 12.0, 13.0, -12.0, 28.0, 13.8, -12.8, 15.2, -14.2, 12.2, 13.2, -12.2, 28.5, 14.0, -13.0, 15.5, -14.5, 12.5, 13.5, -12.5, 29.0, 14.2, -13.2, 15.8, -14.8, 12.8, 13.8, -12.8, 29.5, 14.5, -13.5, 16.0, -15.0, 13.0, 14.0, -13.0, 30.0, 14.8, -13.8, 16.2, -15.2, 13.2, 14.2, -13.2, 30.5, 15.0, -14.0, 16.5, -15.5, 13.5, 14.5, -13.5, 31.0, 15.2, -14.2, 16.8, -15.8, 13.8, 14.8, -13.8, 31.5, 15.5, -14.5, 17.0, -16.0, 14.0, 15.0, -14.0, 32.0, 15.8, -14.8, 17.2, -16.2, 14.2, 15.2, -14.2, 32.5, 16.0, -15.0, 17.5, -16.5, 14.5, 15.5, -14.5, 33.0, 16.2, -15.2, 17.8, -16.8, 14.8, 15.8, -14.8, 33.5, 16.5, -15.5, 18.0, -17.0, 15.0, 16.0, -15.0, 34.0, 16.8, -15.8, 18.2, -17.2, 15.2, 16.2, -15.2, 34.5, 17.0, -16.0, 18.5, -17.5, 15.5, 16.5, -15.5, 35.0, 17.2, -16.2, 18.8, -17.8, 15.8, 16.8, -15.8, 35.5, 17.5, -16.5, 19.0, -18.0, 16.0, 17.0, -16.0, 36.0, 17.8, -16.8, 19.2, -18.2, 16.2, 17.2, -16.2, 36.5, 18.0, -17.0, 19.5, -18.5, 16.5, 17.5, -16.5, 37.0, 18.2, -17.2, 19.8, -18.8, 16.8, 17.8, -16.8, 37.5, 18.5, -17.5, 20.0, -19.0, 17.0, 18.0, -17.0, 38.0, 18.8, -17.8, 20.2, -19.2, 17.2, 18.2, -17.2, 38.5, 19.0, -18.0, 20.5, -19.5, 17.5, 18.5, -17.5, 39.0, 19.2, -18.2, 20.8, -19.8, 17.8, 18.8, -17.8, 39.5, 19.5, -18.5, 21.0, -20.0, 18.0, 19.0, -18.0, 40.0, 19.8, -18.8, 21.2, -20.2, 18.2, 19.2, -18.2, 40.5, 20.0, -19.0, 21.5, -20.5, 18.5, 19.5, -18.5, 41.0, 20.2, -19.2, 21.8, -20.8, 18.8, 19.8, -18.8, 41.5, 20.5, -19.5, 22.0, -21.0, 19.0, 20.0, -19.0, 42.0, 20.8, -19.8, 22.2, -21.2, 19.2, 20.2, -19.2, 42.5, 21.0, -20.0, 22.5, -21.5, 19.5, 20.5, -19.5, 43.0, 21.2, -20.2, 22.8, -21.8, 19.8, 20.8, -19.8, 43.5, 21.5, -20.5, 23.0, -22.0, 20.0, 21.0, -20.0, 44.0, 21.8, -20.8, 23.2, -22.2, 20.2, 21.2, -20.2, 44.5, 22.0, -21.0, 23.5, -22.5, 20.5, 21.5, -20.5, 45.0, 22.2, -21.2, 23.8, -22.8, 20.8, 21.8, -20.8, 45.5, 22.5, -21.5, 24.0, -23.0, 21.0, 22.0, -21.0, 46.0, 22.8, -21.8, 24.2, -23.2, 21.2, 22.2, -21.2, 46.5, 23.0, -22.0, 24.5, -23.5, 21.5, 22.5, -21.5, 47.0, 23.2, -22.2, 24.8, -23.8, 21.8, 22.8, -21.8, 47.5, 23.5, -22.5, 25.0, -24.0, 22.0, 23.0, -22.0, 48.0, 23.8, -22.8, 25.2, -24.2, 22.2, 23.2, -22.2, 48.5, 24.0, -23.0, 25.5, -24.5, 22.5, 23.5, -22.5, 49.0, 24.2, -23.2, 25.8, -24.8, 22.8, 23.8, -22.8, 49.5, 24.5, -23.5, 26.0, -25.0, 23.0, 24.0, -23.0, 50.0, 24.8, -23.8, 26.2, -25.2, 23.2, 24.2, -23.2, 50.5, 25.0, -24.0, 26.5, -25.5, 23.5, 24.5, -23.5, 51.0, 25.2, -24.2, 26.8, -25.8, 23.8, 24.8, -23.8, 51.5, 25.5, -24.5, 27.0, -26.0, 24.0, 25.0, -24.0, 52.0, 25.8, -24.8, 27.2, -26.2, 24.2, 25.2, -24.2, 52.5, 26.0, -25.0, 27.5, -26.5, 24.5, 25.5, -24.5, 53.0, 26.2, -25.2, 27.8, -26.8, 24.8, 25.8, -24.8, 53.5, 26.5, -25.5, 28.0, -27.0, 25.0, 26.0, -25.0, 54.0, 26.8, -25.8, 28.2, -27.2, 25.2, 26.2, -25.2, 54.5, 27.0, -26.0, 28.5, -27.5, 25.5, 26.5, -25.5, 55.0, 27.2, -26.2, 28.8, -27.8, 25.8, 26.8, -25.8, 55.5, 27.5, -26.5, 29.0, -28.0, 26.0, 27.0, -26.0, 56.0, 27.8, -26.8, 29.2, -28.2, 26.2, 27.2, -26.2, 56.5, 28.0, -27.0, 29.5, -28.5, 26.5, 27.5, -26.5, 57.0, 28.2, -27.2, 29.8, -28.8, 26.8, 27.8, -26.8, 57.5, 28.5, -27.5, 30.0, -29.0, 27.0, 28.0, -27.0, 58.0, 28.8, -27.8, 30.2, -29.2, 27.2, 28.2, -27.2, 58.5, 29.0, -28.0, 30.5, -29.5, 27.5, 28.5, -27.5, 59.0, 29.2, -28.2, 30.8, -29.8, 27.8, 28.8, -27.8, 59.5, 29.5, -28.5, 31.0, -30.0, 28.0, 29.0, -28.0, 60.0, 29.8, -28.8, 31.2, -30.2, 28.2, 29.2, -28.2, 60.5, 30.0, -29.0, 31.5, -30.5, 28.5, 29.5, -28.5, 61.0, 30.2, -29.2, 31.8, -30.8, 28.8, 29.8, -28.8, 61.5, 30.5, -29.5, 32.0, -31.0, 29.0, 30.0, -29.0, 62.0, 30.8, -29.8, 32.2, -31.2, 29.2, 30.2, -29.2, 62.5, 31.0, -30.0, 32.5, -31.5, 29.5, 30.5, -29.5, 63.0, 31.2, -30.2, 32.8, -31.8, 29.8, 30.8, -29.8, 63.5, 31.5, -30.5, 33.0, -32.0, 30.0, 31.0, -30.0, 64.0, 31.8, -30.8, 33.2, -32.2, 30.2, 31.2, -30.2, 64.5, 32.0, -31.0, 33.5, -32.5, 30.5, 31.5, -30.5, 65.0, 32.2, -31.2, 33.8, -32.8, 30.8, 31.8, -30.8, 65.5, 32.5, -31.5, 34.0, -33.0, 31.0, 32.0, -31.0, 66.0, 32.8, -31.8, 34.2, -33.2, 31.2, 32.2, -31.2, 66.5, 33.0, -32.0, 34.5, -33.5, 31.5, 32.5, -31.5, 67.0, 33.2, -32.2, 34.8, -33.8, 31.8, 32.8, -31.8, 67.5, 33.5, -32.5, 35.0, -34.0, 32.0, 33.0, -32.0, 68.0, 33.8, -32.8, 35.2, -34.2, 32.2, 33.2, -32.2, 68.5, 34.0, -33.0, 35.5, -34.5, 32.5, 33.5, -32.5, 69.0, 34.2, -33.2, 35.8, -34.8, 32.8, 33.8, -32.8, 69.5, 34.5, -33.5, 36.0, -35.0, 33.0, 34.0, -33.0, 70.0, 34.8, -33.8, 36.2, -35.2, 33.2, 34.2, -33.2, 70.5, 35.0, -34.0, 36.5, -35.5, 33.5, 34.5, -33.5, 71.0, 35.2, -34.2, 36.8, -35.8, 33.8, 34.8, -33.8, 71.5, 35.5, -34.5, 37.0, -36.0, 34.0, 35.0, -34.0, 72.0, 35.8, -34.8, 37.2, -36.2, 34.2, 35.2, -34.2, 72.5, 36.0, -35.0, 37.5, -36.5, 34.5, 35.5, -34.5, 73.0, 36.2, -35.2, 37.8, -36.8, 34.8, 35.8, -34.8, 73.5, 36.5, -35.5, 38.0, -37.0, 35.0, 36.0, -35.0, 74.0, 36.8, -35.8, 38.2, -37.2, 35.2, 36.2, -35.2, 74.5, 37.0, -36.0, 38.5, -37.5, 35.5, 36.5, -35.5, 75.0, 37.2, -36.2, 38.8, -37.8, 35.8, 36.8, -35.8, 75.5, 37.5, -36.5, 39.0, -38.0, 36.0, 37.0, -36.0, 76.0, 37.8, -36.8, 39.2, -38.2, 36.2, 37.2, -36.2, 76.5, 38.0, -37.0, 39.5, -38.5, 36.5, 37.5, -36.5, 77.0, 38.2, -37.2, 39.8, -38.8, 36.8, 37.8, -36.8, 77.5, 38.5, -37.5, 40.0, -39.0, 37.0, 38.0, -37.0, 78.0, 38.8, -37.8, 40.2, -39.2, 37.2, 38.2, -37.2, 78.5, 39.0, -38.0, 40.5, -39.5, 37.5, 38.5, -37.5, 79.0, 39.2, -38.2, 40.8, -39.8, 37.8, 38.8, -37.8, 79.5, 39.5, -38.5, 41.0, -40.0, 38.0, 39.0, -38.0, 80.0, 39.8, -38.8, 41.2, -40.2, 38.2, 39.2, -38.2, 80.5, 40.0, -39.0, 41.5, -40.5, 38.5, 39.5, -38.5, 81.0, 40.2, -39.2, 41.8, -40.8, 38.8, 39.8, -38.8, 81.5, 40.5, -39.5, 42.0, -41.0, 39.0, 40.0, -39.0, 82.0, 40.8, -39.8, 42.2, -41.2, 39.2, 40.2, -39.2, 82.5, 41.0, -40.0, 42.5, -41.5, 39.5, 40.5, -39.5, 83.0, 41.2, -40.2, 42.8, -41.8, 39.8, 40.8, -39.8, 83.5, 41.5, -40.5, 43.0, -42.0, 40.0, 41.0, -40.0, 84.0, 41.8, -40.8, 43.2, -42.2, 40.2, 41.2, -40.2, 84.5, 42.0, -41.0, 43.5, -42.5, 40.5, 41.5, -40.5, 85.0, 42.2, -41.2, 43.8, -42.8, 40.8, 41.8, -40.8, 85.5, 42.5, -41.5, 44.0, -43.0, 41.0, 42.0, -41.0, 86.0, 42.8, -41.8, 44.2, -43.2, 41.2, 42.2, -41.2, 86.5, 43.0, -42.0, 44.5, -43.5, 41.5, 42.5, -41.5, 87.0, 43.2, -42.2, 44.8, -43.8, 41.8, 42.8, -41.8, 87.5, 43.5, -42.5, 45.0, -44.0, 42.0, 43.0, -42.0, 88.0, 43.8, -42.8, 45.2, -44.2, 42.2, 43.2, -42.2, 88.5, 44.0, -43.0, 45.5, -44.5, 42.5, 43.5, -42.5, 89.0, 44.2, -43.2, 45.8, -44.8, 42.8, 43.8, -42.8, 89.5, 44.5, -43.5, 46.0, -45.0, 43.0, 44.0, -43.0, 90.0, 44.8, -43.8, 46.2, -45.2, 43.2, 44.2, -43.2, 90.5, 45.0, -44.0, 46.5, -45.5, 43.5, 44.5, -43.5, 91.0, 45.2, -44.2, 46.8, -45.8, 43.8, 44.8, -43.8, 91.5, 45.5, -44.5, 47.0, -46.0, 44.0, 45.0, -44.0, 92.0, 45.8, -44.8, 47.2, -46.2, 44.2, 45.2, -44.2, 92.5, 46.0, -45.0, 47.5, -46.5, 44.5, 45.5, -44.5, 93.0, 46.2, -45.2, 47.8, -46.8, 44.8, 45.8, -44.8, 93.5, 46.5, -45.5, 48.0, -47.0, 45.0, 46.0, -45.0, 94.0, 46.8, -45.8, 48.2, -47.2, 45.2, 46.2, -45.2, 94.5, 47.0, -46.0, 48.5, -47.5, 45.5, 46.5, -45.5, 95.0, 47.2, -46.2, 48.8, -47.8, 45.8, 46.8, -45.8, 95.5, 47.5, -46.5, 49.0, -48.0, 46.0, 47.0, -46.0, 96.0, 47.8, -46.8, 49.2, -48.2, 46.2, 47.2, -46.2, 96.5, 48.0, -47.0, 49.5, -48.5, 46.5, 47.5, -46.5, 97.0, 48.2, -47.2, 49.8, -48.8, 46.8, 47.8, -46.8, 97.5, 48.5, -47.5, 50.0, -49.0, 47.0, 48.0, -47.0, 98.0, 48.8, -47.8, 50.2, -49.2, 47.2, 48.2, -47.2, 98.5, 49.0, -48.0, 50.5, -49.5, 47.5, 48.5, -47.5, 99.0, 49.2, -48.2, 50.8, -49.8, 47.8, 48.8, -47.8, 99.5, 49.5, -48.5, 51.0, -50.0, 48.0, 49.0, -48.0, 100.0]}' 
+```
+
+**Success Response (200 OK)**:
+
+```json
+{
+    "prediction": 123.45
+}
+```
+
+### 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🇧🇷 Português
+
+### 📋 Descrição
+
+Este projeto fornece um robusto **Sistema de Detecção de Anomalias** exposto como uma API RESTful. Construído com Python e Flask, ele utiliza um modelo de regressão XGBoost pré-treinado para identificar anomalias em dados de séries temporais. O sistema é projetado para receber pontos de dados, prever valores esperados e sinalizar desvios significativos como anomalias.
+
+Esta solução é ideal para cenários que exigem monitoramento e alertas em tempo real, como detecção de fraudes, monitoramento da saúde de sistemas ou identificação de outliers em métricas de negócios. O projeto inclui uma API completa e funcional e instruções detalhadas para configuração e uso.
+
+### 🏛️ Arquitetura
+
+O sistema segue uma arquitetura simples, porém poderosa. Um servidor web Flask expõe um endpoint de API que recebe dados. Esses dados são então processados por um modelo XGBoost pré-treinado, que retorna uma predição. A lógica central compara essa predição com o valor real para detectar anomalias.
+
+```mermaid
+graph TD
+    A[Cliente] -- Requisição JSON --> B{Servidor API Flask};
+    B -- Carrega Modelo --> C[Modelo XGBoost (.pkl)];
+    B -- Processa Dados & Prediz --> D[Lógica de Detecção de Anomalia];
+    D -- Anomalia? --> E{Resposta JSON};
+    B -- Envia Resposta --> A;
+```
+
+### ✨ Funcionalidades
+
+- **API RESTful**: Interface simples e padronizada para integração.
+- **Modelo de Machine Learning**: Usa um poderoso modelo XGBoost para detecção precisa de anomalias.
+- **Previsão em Tempo Real**: Capaz de processar requisições e fornecer feedback instantâneo.
+- **Fácil de Implantar**: Pode ser rapidamente implantado usando Docker ou ambientes Python padrão.
+- **Escalável**: Projetado para ser escalado horizontalmente por trás de um balanceador de carga.
+
+### 🛠️ Tecnologias Utilizadas
+
+- **Backend**: Python, Flask
+- **Machine Learning**: Scikit-learn, XGBoost, Pandas
+- **Ambiente**: Virtualenv/Pip
+
+### 🚀 Como Começar
+
+#### Pré-requisitos
+
+- **Python 3.8+**
+- Gerenciador de pacotes **Pip**
+
+#### Instalação e Configuração
+
+1.  **Clonar o Repositório**:
+    ```bash
+    git clone https://github.com/galafis/Anomaly-Detection-System.git
+    cd Anomaly-Detection-System
+    ```
+
+2.  **Configurar um Ambiente Virtual**:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # No Windows, use: venv\Scripts\activate
+    ```
+
+3.  **Instalar Dependências**:
+    O arquivo `requirements.txt` original contém pacotes desatualizados. Por favor, use o `requirements_fixed.txt` atualizado para uma instalação estável.
+    ```bash
+    pip install -r requirements_fixed.txt
+    ```
+
+4.  **Executar a Aplicação**:
+    ```bash
+    python app.py
+    ```
+    A API estará rodando em `http://127.0.0.1:5000`.
+
+### 💻 Uso da API
+
+Para usar a API, envie uma requisição `POST` para o endpoint `/predict` com um payload JSON contendo as features para a predição.
+
+**Endpoint**: `POST /predict`
+
+**Corpo da Requisição**:
+
+```json
+{
+    "features": [
+        0.5, 1.2, -0.3, 4.5, ... // Array de features numéricas
+    ]
+}
+```
+
+**Exemplo com cURL**:
+
+```bash
+cURL -X POST http://127.0.0.1:5000/predict \
+-H "Content-Type: application/json" \
+-d '{"features": [0.5, 1.2, -0.3, 4.5, 2.1, -1.0, 3.3, -2.5, 0.8, 1.5, -0.7, 5.0, 2.3, -1.2, 3.8, -2.9, 0.9, 1.8, -0.9, 5.5, 2.5, -1.5, 4.0, -3.0, 1.0, 2.0, -1.0, 6.0, 2.8, -1.8, 4.2, -3.2, 1.2, 2.2, -1.2, 6.5, 3.0, -2.0, 4.5, -3.5, 1.5, 2.5, -1.5, 7.0, 3.2, -2.2, 4.8, -3.8, 1.8, 2.8, -1.8, 7.5, 3.5, -2.5, 5.0, -4.0, 2.0, 3.0, -2.0, 8.0, 3.8, -2.8, 5.2, -4.2, 2.2, 3.2, -2.2, 8.5, 4.0, -3.0, 5.5, -4.5, 2.5, 3.5, -2.5, 9.0, 4.2, -3.2, 5.8, -4.8, 2.8, 3.8, -2.8, 9.5, 4.5, -3.5, 6.0, -5.0, 3.0, 4.0, -3.0, 10.0, 4.8, -3.8, 6.2, -5.2, 3.2, 4.2, -3.2, 10.5, 5.0, -4.0, 6.5, -5.5, 3.5, 4.5, -3.5, 11.0, 5.2, -4.2, 6.8, -5.8, 3.8, 4.8, -3.8, 11.5, 5.5, -4.5, 7.0, -6.0, 4.0, 5.0, -4.0, 12.0, 5.8, -4.8, 7.2, -6.2, 4.2, 5.2, -4.2, 12.5, 6.0, -5.0, 7.5, -6.5, 4.5, 5.5, -4.5, 13.0, 6.2, -5.2, 7.8, -6.8, 4.8, 5.8, -4.8, 13.5, 6.5, -5.5, 8.0, -7.0, 5.0, 6.0, -5.0, 14.0, 6.8, -5.8, 8.2, -7.2, 5.2, 6.2, -5.2, 14.5, 7.0, -6.0, 8.5, -7.5, 5.5, 6.5, -5.5, 15.0, 7.2, -6.2, 8.8, -7.8, 5.8, 6.8, -5.8, 15.5, 7.5, -6.5, 9.0, -8.0, 6.0, 7.0, -6.0, 16.0, 7.8, -6.8, 9.2, -8.2, 6.2, 7.2, -6.2, 16.5, 8.0, -7.0, 9.5, -8.5, 6.5, 7.5, -6.5, 17.0, 8.2, -7.2, 9.8, -8.8, 6.8, 7.8, -6.8, 17.5, 8.5, -7.5, 10.0, -9.0, 7.0, 8.0, -7.0, 18.0, 8.8, -7.8, 10.2, -9.2, 7.2, 8.2, -7.2, 18.5, 9.0, -8.0, 10.5, -9.5, 7.5, 8.5, -7.5, 19.0, 9.2, -8.2, 10.8, -9.8, 7.8, 8.8, -7.8, 19.5, 9.5, -8.5, 11.0, -10.0, 8.0, 9.0, -8.0, 20.0, 9.8, -8.8, 11.2, -10.2, 8.2, 9.2, -8.2, 20.5, 10.0, -9.0, 11.5, -10.5, 8.5, 9.5, -8.5, 21.0, 10.2, -9.2, 11.8, -10.8, 8.8, 9.8, -8.8, 21.5, 10.5, -9.5, 12.0, -11.0, 9.0, 10.0, -9.0, 22.0, 10.8, -9.8, 12.2, -11.2, 9.2, 10.2, -9.2, 22.5, 11.0, -10.0, 12.5, -11.5, 9.5, 10.5, -9.5, 23.0, 11.2, -10.2, 12.8, -11.8, 9.8, 10.8, -9.8, 23.5, 11.5, -10.5, 13.0, -12.0, 10.0, 11.0, -10.0, 24.0, 11.8, -10.8, 13.2, -12.2, 10.2, 11.2, -10.2, 24.5, 12.0, -11.0, 13.5, -12.5, 10.5, 11.5, -10.5, 25.0, 12.2, -11.2, 13.8, -12.8, 10.8, 11.8, -10.8, 25.5, 12.5, -11.5, 14.0, -13.0, 11.0, 12.0, -11.0, 26.0, 12.8, -11.8, 14.2, -13.2, 11.2, 12.2, -11.2, 26.5, 13.0, -12.0, 14.5, -13.5, 11.5, 12.5, -11.5, 27.0, 13.2, -12.2, 14.8, -13.8, 11.8, 12.8, -11.8, 27.5, 13.5, -12.5, 15.0, -14.0, 12.0, 13.0, -12.0, 28.0, 13.8, -12.8, 15.2, -14.2, 12.2, 13.2, -12.2, 28.5, 14.0, -13.0, 15.5, -14.5, 12.5, 13.5, -12.5, 29.0, 14.2, -13.2, 15.8, -14.8, 12.8, 13.8, -12.8, 29.5, 14.5, -13.5, 16.0, -15.0, 13.0, 14.0, -13.0, 30.0, 14.8, -13.8, 16.2, -15.2, 13.2, 14.2, -13.2, 30.5, 15.0, -14.0, 16.5, -15.5, 13.5, 14.5, -13.5, 31.0, 15.2, -14.2, 16.8, -15.8, 13.8, 14.8, -13.8, 31.5, 15.5, -14.5, 17.0, -16.0, 14.0, 15.0, -14.0, 32.0, 15.8, -14.8, 17.2, -16.2, 14.2, 15.2, -14.2, 32.5, 16.0, -15.0, 17.5, -16.5, 14.5, 15.5, -14.5, 33.0, 16.2, -15.2, 17.8, -16.8, 14.8, 15.8, -14.8, 33.5, 16.5, -15.5, 18.0, -17.0, 15.0, 16.0, -15.0, 34.0, 16.8, -15.8, 18.2, -17.2, 15.2, 16.2, -15.2, 34.5, 17.0, -16.0, 18.5, -17.5, 15.5, 16.5, -15.5, 35.0, 17.2, -16.2, 18.8, -17.8, 15.8, 16.8, -15.8, 35.5, 17.5, -16.5, 19.0, -18.0, 16.0, 17.0, -16.0, 36.0, 17.8, -16.8, 19.2, -18.2, 16.2, 17.2, -16.2, 36.5, 18.0, -17.0, 19.5, -18.5, 16.5, 17.5, -16.5, 37.0, 18.2, -17.2, 19.8, -18.8, 16.8, 17.8, -16.8, 37.5, 18.5, -17.5, 20.0, -19.0, 17.0, 18.0, -17.0, 38.0, 18.8, -17.8, 20.2, -19.2, 17.2, 18.2, -17.2, 38.5, 19.0, -18.0, 20.5, -19.5, 17.5, 18.5, -17.5, 39.0, 19.2, -18.2, 20.8, -19.8, 17.8, 18.8, -17.8, 39.5, 19.5, -18.5, 21.0, -20.0, 18.0, 19.0, -18.0, 40.0, 19.8, -18.8, 21.2, -20.2, 18.2, 19.2, -18.2, 40.5, 20.0, -19.0, 21.5, -20.5, 18.5, 19.5, -18.5, 41.0, 20.2, -19.2, 21.8, -20.8, 18.8, 19.8, -18.8, 41.5, 20.5, -19.5, 22.0, -21.0, 19.0, 20.0, -19.0, 42.0, 20.8, -19.8, 22.2, -21.2, 19.2, 20.2, -19.2, 42.5, 21.0, -20.0, 22.5, -21.5, 19.5, 20.5, -19.5, 43.0, 21.2, -20.2, 22.8, -21.8, 19.8, 20.8, -19.8, 43.5, 21.5, -20.5, 23.0, -22.0, 20.0, 21.0, -20.0, 44.0, 21.8, -20.8, 23.2, -22.2, 20.2, 21.2, -20.2, 44.5, 22.0, -21.0, 23.5, -22.5, 20.5, 21.5, -20.5, 45.0, 22.2, -21.2, 23.8, -22.8, 20.8, 21.8, -20.8, 45.5, 22.5, -21.5, 24.0, -23.0, 21.0, 22.0, -21.0, 46.0, 22.8, -21.8, 24.2, -23.2, 21.2, 22.2, -21.2, 46.5, 23.0, -22.0, 24.5, -23.5, 21.5, 22.5, -21.5, 47.0, 23.2, -22.2, 24.8, -23.8, 21.8, 22.8, -21.8, 47.5, 23.5, -22.5, 25.0, -24.0, 22.0, 23.0, -22.0, 48.0, 23.8, -22.8, 25.2, -24.2, 22.2, 23.2, -22.2, 48.5, 24.0, -23.0, 25.5, -24.5, 22.5, 23.5, -22.5, 49.0, 24.2, -23.2, 25.8, -24.8, 22.8, 23.8, -22.8, 49.5, 24.5, -23.5, 26.0, -25.0, 23.0, 24.0, -23.0, 50.0, 24.8, -23.8, 26.2, -25.2, 23.2, 24.2, -23.2, 50.5, 25.0, -24.0, 26.5, -25.5, 23.5, 24.5, -23.5, 51.0, 25.2, -24.2, 26.8, -25.8, 23.8, 24.8, -23.8, 51.5, 25.5, -24.5, 27.0, -26.0, 24.0, 25.0, -24.0, 52.0, 25.8, -24.8, 27.2, -26.2, 24.2, 25.2, -24.2, 52.5, 26.0, -25.0, 27.5, -26.5, 24.5, 25.5, -24.5, 53.0, 26.2, -25.2, 27.8, -26.8, 24.8, 25.8, -24.8, 53.5, 26.5, -25.5, 28.0, -27.0, 25.0, 26.0, -25.0, 54.0, 26.8, -25.8, 28.2, -27.2, 25.2, 26.2, -25.2, 54.5, 27.0, -26.0, 28.5, -27.5, 25.5, 26.5, -25.5, 55.0, 27.2, -26.2, 28.8, -27.8, 25.8, 26.8, -25.8, 55.5, 27.5, -26.5, 29.0, -28.0, 26.0, 27.0, -26.0, 56.0, 27.8, -26.8, 29.2, -28.2, 26.2, 27.2, -26.2, 56.5, 28.0, -27.0, 29.5, -28.5, 26.5, 27.5, -26.5, 57.0, 28.2, -27.2, 29.8, -28.8, 26.8, 27.8, -26.8, 57.5, 28.5, -27.5, 30.0, -29.0, 27.0, 28.0, -27.0, 58.0, 28.8, -27.8, 30.2, -29.2, 27.2, 28.2, -27.2, 58.5, 29.0, -28.0, 30.5, -29.5, 27.5, 28.5, -27.5, 59.0, 29.2, -28.2, 30.8, -29.8, 27.8, 28.8, -27.8, 59.5, 29.5, -28.5, 31.0, -30.0, 28.0, 29.0, -28.0, 60.0, 29.8, -28.8, 31.2, -30.2, 28.2, 29.2, -28.2, 60.5, 30.0, -29.0, 31.5, -30.5, 28.5, 29.5, -28.5, 61.0, 30.2, -29.2, 31.8, -30.8, 28.8, 29.8, -28.8, 61.5, 30.5, -29.5, 32.0, -31.0, 29.0, 30.0, -29.0, 62.0, 30.8, -29.8, 32.2, -31.2, 29.2, 30.2, -29.2, 62.5, 31.0, -30.0, 32.5, -31.5, 29.5, 30.5, -29.5, 63.0, 31.2, -30.2, 32.8, -31.8, 29.8, 30.8, -29.8, 63.5, 31.5, -30.5, 33.0, -32.0, 30.0, 31.0, -30.0, 64.0, 31.8, -30.8, 33.2, -32.2, 30.2, 31.2, -30.2, 64.5, 32.0, -31.0, 33.5, -32.5, 30.5, 31.5, -30.5, 65.0, 32.2, -31.2, 33.8, -32.8, 30.8, 31.8, -30.8, 65.5, 32.5, -31.5, 34.0, -33.0, 31.0, 32.0, -31.0, 66.0, 32.8, -31.8, 34.2, -33.2, 31.2, 32.2, -31.2, 66.5, 33.0, -32.0, 34.5, -33.5, 31.5, 32.5, -31.5, 67.0, 33.2, -32.2, 34.8, -33.8, 31.8, 32.8, -31.8, 67.5, 33.5, -32.5, 35.0, -34.0, 32.0, 33.0, -32.0, 68.0, 33.8, -32.8, 35.2, -34.2, 32.2, 33.2, -32.2, 68.5, 34.0, -33.0, 35.5, -34.5, 32.5, 33.5, -32.5, 69.0, 34.2, -33.2, 35.8, -34.8, 32.8, 33.8, -32.8, 69.5, 34.5, -33.5, 36.0, -35.0, 33.0, 34.0, -33.0, 70.0, 34.8, -33.8, 36.2, -35.2, 33.2, 34.2, -33.2, 70.5, 35.0, -34.0, 36.5, -35.5, 33.5, 34.5, -33.5, 71.0, 35.2, -34.2, 36.8, -35.8, 33.8, 34.8, -33.8, 71.5, 35.5, -34.5, 37.0, -36.0, 34.0, 35.0, -34.0, 72.0, 35.8, -34.8, 37.2, -36.2, 34.2, 35.2, -34.2, 72.5, 36.0, -35.0, 37.5, -36.5, 34.5, 35.5, -34.5, 73.0, 36.2, -35.2, 37.8, -36.8, 34.8, 35.8, -34.8, 73.5, 36.5, -35.5, 38.0, -37.0, 35.0, 36.0, -35.0, 74.0, 36.8, -35.8, 38.2, -37.2, 35.2, 36.2, -35.2, 74.5, 37.0, -36.0, 38.5, -37.5, 35.5, 36.5, -35.5, 75.0, 37.2, -36.2, 38.8, -37.8, 35.8, 36.8, -35.8, 75.5, 37.5, -36.5, 39.0, -38.0, 36.0, 37.0, -36.0, 76.0, 37.8, -36.8, 39.2, -38.2, 36.2, 37.2, -36.2, 76.5, 38.0, -37.0, 39.5, -38.5, 36.5, 37.5, -36.5, 77.0, 38.2, -37.2, 39.8, -38.8, 36.8, 37.8, -36.8, 77.5, 38.5, -37.5, 40.0, -39.0, 37.0, 38.0, -37.0, 78.0, 38.8, -37.8, 40.2, -39.2, 37.2, 38.2, -37.2, 78.5, 39.0, -38.0, 40.5, -39.5, 37.5, 38.5, -37.5, 79.0, 39.2, -38.2, 40.8, -39.8, 37.8, 38.8, -37.8, 79.5, 39.5, -38.5, 41.0, -40.0, 38.0, 39.0, -38.0, 80.0, 39.8, -38.8, 41.2, -40.2, 38.2, 39.2, -38.2, 80.5, 40.0, -39.0, 41.5, -40.5, 38.5, 39.5, -38.5, 81.0, 40.2, -39.2, 41.8, -40.8, 38.8, 39.8, -38.8, 81.5, 40.5, -39.5, 42.0, -41.0, 39.0, 40.0, -39.0, 82.0, 40.8, -39.8, 42.2, -41.2, 39.2, 40.2, -39.2, 82.5, 41.0, -40.0, 42.5, -41.5, 39.5, 40.5, -39.5, 83.0, 41.2, -40.2, 42.8, -41.8, 39.8, 40.8, -39.8, 83.5, 41.5, -40.5, 43.0, -42.0, 40.0, 41.0, -40.0, 84.0, 41.8, -40.8, 43.2, -42.2, 40.2, 41.2, -40.2, 84.5, 42.0, -41.0, 43.5, -42.5, 40.5, 41.5, -40.5, 85.0, 42.2, -41.2, 43.8, -42.8, 40.8, 41.8, -40.8, 85.5, 42.5, -41.5, 44.0, -43.0, 41.0, 42.0, -41.0, 86.0, 42.8, -41.8, 44.2, -43.2, 41.2, 42.2, -41.2, 86.5, 43.0, -42.0, 44.5, -43.5, 41.5, 42.5, -41.5, 87.0, 43.2, -42.2, 44.8, -43.8, 41.8, 42.8, -41.8, 87.5, 43.5, -42.5, 45.0, -44.0, 42.0, 43.0, -42.0, 88.0, 43.8, -42.8, 45.2, -44.2, 42.2, 43.2, -42.2, 88.5, 44.0, -43.0, 45.5, -44.5, 42.5, 43.5, -42.5, 89.0, 44.2, -43.2, 45.8, -44.8, 42.8, 43.8, -42.8, 89.5, 44.5, -43.5, 46.0, -45.0, 43.0, 44.0, -43.0, 90.0, 44.8, -43.8, 46.2, -45.2, 43.2, 44.2, -43.2, 90.5, 45.0, -44.0, 46.5, -45.5, 43.5, 44.5, -43.5, 91.0, 45.2, -44.2, 46.8, -45.8, 43.8, 44.8, -43.8, 91.5, 45.5, -44.5, 47.0, -46.0, 44.0, 45.0, -44.0, 92.0, 45.8, -44.8, 47.2, -46.2, 44.2, 45.2, -44.2, 92.5, 46.0, -45.0, 47.5, -46.5, 44.5, 45.5, -44.5, 93.0, 46.2, -45.2, 47.8, -46.8, 44.8, 45.8, -44.8, 93.5, 46.5, -45.5, 48.0, -47.0, 45.0, 46.0, -45.0, 94.0, 46.8, -45.8, 48.2, -47.2, 45.2, 46.2, -45.2, 94.5, 47.0, -46.0, 48.5, -47.5, 45.5, 46.5, -45.5, 95.0, 47.2, -46.2, 48.8, -47.8, 45.8, 46.8, -45.8, 95.5, 47.5, -46.5, 49.0, -48.0, 46.0, 47.0, -46.0, 96.0, 47.8, -46.8, 49.2, -48.2, 46.2, 47.2, -46.2, 96.5, 48.0, -47.0, 49.5, -48.5, 46.5, 47.5, -46.5, 97.0, 48.2, -47.2, 49.8, -48.8, 46.8, 47.8, -46.8, 97.5, 48.5, -47.5, 50.0, -49.0, 47.0, 48.0, -47.0, 98.0, 48.8, -47.8, 50.2, -49.2, 47.2, 48.2, -47.2, 98.5, 49.0, -48.0, 50.5, -49.5, 47.5, 48.5, -47.5, 99.0, 49.2, -48.2, 50.8, -49.8, 47.8, 48.8, -47.8, 99.5, 49.5, -48.5, 51.0, -50.0, 48.0, 49.0, -48.0, 100.0]}' \
+```
+
+**Resposta de Sucesso (200 OK)**:
+
+```json
+{
+    "prediction": 123.45
+}
+```
+
+### 📄 Licença
+
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+

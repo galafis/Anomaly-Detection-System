@@ -1,0 +1,40 @@
+graph LR
+    subgraph "Input Layer"
+        A[Client Application<br/>JSON Request]
+        B[Feature Vector<br/>1000 dimensions]
+    end
+
+    subgraph "API Layer"
+        C[Flask REST API<br/>POST /predict]
+        D[Request Validation<br/>Data Preprocessing]
+    end
+
+    subgraph "ML Pipeline"
+        E[XGBoost Model<br/>regressor_model.pkl]
+        F[Prediction Engine<br/>Anomaly Detection]
+        G[Threshold Analysis<br/>Statistical Evaluation]
+    end
+
+    subgraph "Output Layer"
+        H[JSON Response<br/>Prediction Result]
+        I[Anomaly Score<br/>Confidence Level]
+    end
+
+    A --> C
+    B --> D
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+
+    style A fill:#E3F2FD
+    style B fill:#E3F2FD
+    style C fill:#1976D2,color:#fff
+    style D fill:#1976D2,color:#fff
+    style E fill:#FF5722,color:#fff
+    style F fill:#FF5722,color:#fff
+    style G fill:#FF5722,color:#fff
+    style H fill:#4CAF50,color:#fff
+    style I fill:#4CAF50,color:#fff

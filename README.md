@@ -75,37 +75,43 @@ O diagrama a seguir ilustra a arquitetura do Sistema Avançado de Detecção de 
 
 ```mermaid
 graph TD
-    subgraph "Interface do Usuário"
-        A[Dashboard Interativo] --> B{API RESTful}
+    subgraph "Frontend"
+        A[Dashboard Interativo] --> B[API RESTful]
     end
 
-    subgraph "Backend (Flask)"
+    subgraph "Backend Flask"
         B --> C[Controlador da API]
-        C --> D{Motor de Detecção}
+        C --> D[Motor de Detecção]
         C --> E[Gerenciador de Alertas]
-        C --> F[Gerenciador de Banco de Dados]
+        C --> F[Gerenciador de Dados]
     end
 
-    subgraph "Motor de Detecção"
+    subgraph "Algoritmos de ML"
         D --> G[Isolation Forest]
         D --> H[One-Class SVM]
         D --> I[Método Estatístico]
-        D --> J[Ensemble]
+        D --> J[Ensemble Method]
     end
 
-    subgraph "Armazenamento de Dados"
+    subgraph "Armazenamento"
         F --> K[(SQLite Database)]
+        F --> L[(Cache Redis)]
     end
 
-    subgraph "Sistema de Alertas"
-        E --> L{Email}
-        E --> M{Webhook (futuro)}
+    subgraph "Notificações"
+        E --> M[Email Alerts]
+        E --> N[Webhook Notifications]
     end
 
-    G --> F
-    H --> F
-    I --> F
-    J --> F
+    subgraph "Monitoramento"
+        O[Métricas de Performance] --> F
+        P[Logs do Sistema] --> F
+    end
+
+    G --> O
+    H --> O
+    I --> O
+    J --> O
 ```
 
 ### Como Executar o Projeto
@@ -127,7 +133,7 @@ graph TD
 3.  **Instale as dependências:**
 
     ```bash
-    pip install -r advanced_requirements.txt
+    pip install -r requirements.txt
     ```
 
 4.  **Configure as variáveis de ambiente:**
@@ -255,7 +261,7 @@ graph TD
 3.  **Install the dependencies:**
 
     ```bash
-    pip install -r advanced_requirements.txt
+    pip install -r requirements.txt
     ```
 
 4.  **Configure environment variables:**

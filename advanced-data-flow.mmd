@@ -1,0 +1,58 @@
+graph TD
+    subgraph "Data Input Layer"
+        A[Real-time Data Stream] --> B{Data Validator}
+        C[Batch CSV/JSON Upload] --> B
+        D[Historical Data] --> B
+    end
+
+    subgraph "Preprocessing Layer"
+        B --> E[Data Cleaner]
+        E --> F[Feature Extractor]
+        F --> G[Data Normalizer]
+    end
+
+    subgraph "Detection Engine"
+        G --> H{Algorithm Selector}
+        H --> I[Isolation Forest]
+        H --> J[One-Class SVM]
+        H --> K[Statistical Z-Score]
+        H --> L[Ensemble Combiner]
+        
+        I --> M[Anomaly Score 1]
+        J --> N[Anomaly Score 2]
+        K --> O[Anomaly Score 3]
+        L --> P[Combined Score]
+    end
+
+    subgraph "Decision Layer"
+        M --> Q{Threshold Evaluator}
+        N --> Q
+        O --> Q
+        P --> Q
+        Q --> R[Anomaly Classification]
+    end
+
+    subgraph "Output & Actions"
+        R --> S[Dashboard Update]
+        R --> T[Alert System]
+        R --> U[Database Storage]
+        R --> V[Report Generator]
+        
+        T --> W[Email Notification]
+        T --> X[Webhook Trigger]
+        V --> Y[PDF Report]
+    end
+
+    subgraph "Feedback Loop"
+        U --> Z[Model Performance Tracker]
+        Z --> AA[Retraining Trigger]
+        AA --> H
+    end
+
+    style A fill:#e1f5fe
+    style I fill:#f3e5f5
+    style J fill:#f3e5f5
+    style K fill:#f3e5f5
+    style L fill:#e8f5e8
+    style T fill:#fff3e0
+    style U fill:#fce4ec

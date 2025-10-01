@@ -1,73 +1,64 @@
-
-
 # Advanced Anomaly Detection System
 
 **Autor:** Gabriel Demetrios Lafis
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-2.3.0-green?style=for-the-badge&logo=flask&logoColor=white)
-![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3.0-orange?style=for-the-badge&logo=scikit-learn&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-2.0.0-purple?style=for-the-badge&logo=pandas&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-1.24.0-blue?style=for-the-badge&logo=numpy&logoColor=white)
-![XGBoost](https://img.shields.io/badge/XGBoost-1.7.0-red?style=for-the-badge&logo=xgboost&logoColor=white)
-![License](https://img.shields.io/github/license/galafis/Anomaly-Detection-System?style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/galafis/Anomaly-Detection-System?style=for-the-badge)
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
+[![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)](https://flask.palletsprojects.com)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.0+-orange.svg)](https://scikit-learn.org)
+[![Pandas](https://img.shields.io/badge/Pandas-1.3+-blue.svg)](https://pandas.pydata.org)
+[![NumPy](https://img.shields.io/badge/NumPy-1.21+-blue.svg)](https://numpy.org)
+[![XGBoost](https://img.shields.io/badge/XGBoost-1.5+-red.svg)](https://xgboost.readthedocs.io)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/galafis/Anomaly-Detection-System.svg)](https://github.com/galafis/Anomaly-Detection-System/stargazers)
 
-[**Ver Código no GitHub**](https://github.com/galafis/Anomaly-Detection-System) | [**Documentação Completa**](https://github.com/galafis/Anomaly-Detection-System/blob/main/README.md)
+[Ver Código no GitHub](https://github.com/galafis/Anomaly-Detection-System) | [Documentação Completa](https://github.com/galafis/Anomaly-Detection-System)
 
-![Advanced Anomaly Detection System](./advanced-hero-image.png)
+![Advanced Anomaly Detection System](advanced-hero-image.png)
 
 ## 📁 Estrutura do Projeto
 
 ```
-.
-├── src/                 # Código fonte principal
-│   ├── api/             # Endpoints da API
-│   ├── models/          # Modelos de dados
-│   ├── services/        # Lógica de negócio
-│   └── utils/           # Utilitários
-├── tests/               # Testes unitários e integração
-├── docs/                # Documentação
-├── frontend/            # Interface do usuário
-│   ├── components/      # Componentes React
-│   ├── assets/          # Imagens e estilos
-│   └── public/          # Arquivos públicos
-├── config/              # Configurações
-└── requirements.txt     # Dependências Python
+📦 Advanced Anomaly Detection System
+├── 📂 src/                 # Código fonte principal
+│   ├── 📂 api/             # Endpoints da API
+│   ├── 📂 models/          # Modelos de dados
+│   ├── 📂 services/        # Lógica de negócio
+│   └── 📂 utils/           # Utilitários
+├── 📂 tests/               # Testes unitários e integração
+├── 📂 docs/                # Documentação (API.md)
+├── 📂 frontend/            # Interface do usuário
+│   ├── 📂 components/      # Componentes React
+│   ├── 📂 assets/          # Imagens e estilos
+│   └── 📂 public/          # Arquivos públicos
+├── 📂 config/              # Configurações (.env.example)
+└── 📄 requirements.txt     # Dependências Python
 ```
-
-
----
 
 ## 🇧🇷 Sistema Avançado de Detecção de Anomalias
 
 ### Visão Geral
 
-Este é um sistema de detecção de anomalias de nível profissional, projetado para identificar padrões incomuns em dados de séries temporais em tempo real. Construído com Python, Flask e uma interface moderna, este projeto demonstra uma arquitetura robusta e funcionalidades avançadas, tornando-o uma ferramenta poderosa para monitoramento, segurança e análise de dados.
+Este projeto apresenta um sistema avançado de detecção de anomalias em tempo real, desenvolvido com tecnologias modernas de machine learning e uma arquitetura robusta. O sistema é capaz de identificar padrões anômalos em dados utilizando múltiplos algoritmos de detecção, incluindo Isolation Forest, One-Class SVM, métodos estatísticos e ensemble learning.
 
-O sistema oferece um dashboard interativo, múltiplos algoritmos de detecção, um sistema de alertas configurável e uma API RESTful completa para integração com outras aplicações. É uma solução completa para qualquer cenário que exija a identificação de outliers e eventos anômalos com alta precisão e performance.
+A solução inclui um dashboard interativo em tempo real construído com React, uma API RESTful robusta em Flask, sistema de alertas automatizado e capacidades de análise avançada. É uma implementação completa que demonstra as melhores práticas em desenvolvimento de sistemas de machine learning para produção.
 
 ### Funcionalidades Principais
 
-- **Dashboard Interativo em Tempo Real**: Uma interface web moderna e responsiva, construída com HTML, CSS e JavaScript, que exibe métricas, alertas e visualizações de dados em tempo real. O dashboard permite o monitoramento contínuo do sistema e a análise interativa dos resultados.
+- **Dashboard Interativo em Tempo Real:** Interface moderna e responsiva construída com React que oferece visualização em tempo real dos dados e anomalias detectadas. O dashboard inclui gráficos dinâmicos, métricas de performance e controles interativos para configuração dos algoritmos.
 
-- **Múltiplos Algoritmos de Detecção**: O sistema integra vários algoritmos de detecção de anomalias, incluindo **Isolation Forest**, **One-Class SVM** e um método estatístico baseado em **Z-score**. Além disso, um modo **Ensemble** combina os resultados de todos os algoritmos para uma detecção mais robusta e precisa.
+- **Múltiplos Algoritmos de Detecção:** O sistema implementa diversos algoritmos de detecção de anomalias, incluindo Isolation Forest para detecção baseada em isolamento, One-Class SVM para classificação de uma classe, métodos estatísticos tradicionais e ensemble learning para combinar múltiplos modelos.
 
-- **Sistema de Alertas Inteligente**: Alertas são gerados automaticamente quando anomalias de alta criticidade são detectadas. O sistema pode ser configurado para enviar notificações por email, permitindo uma resposta rápida a eventos importantes.
+- **API RESTful Completa:** API robusta desenvolvida em Flask com endpoints para upload de dados, configuração de modelos, execução de detecção, consulta de resultados e gerenciamento de alertas. A API segue padrões REST e inclui documentação completa.
 
-- **API RESTful Completa**: Uma API abrangente permite a integração do sistema com outras plataformas. Os endpoints disponíveis incluem detecção de anomalias, treinamento de modelos, consulta de histórico e métricas de performance.
+- **Sistema de Alertas Automatizado:** Sistema inteligente de notificações que envia alertas por email quando anomalias são detectadas. Inclui configuração de thresholds personalizáveis e templates de email profissionais.
 
-- **Processamento de Dados em Lote**: Além da detecção em tempo real, o sistema suporta o processamento de dados em lote através do upload de arquivos CSV ou JSON. Isso permite a análise de grandes volumes de dados históricos.
+- **Análise Estatística Avançada:** Ferramentas de análise estatística integradas que fornecem insights detalhados sobre os dados e as anomalias detectadas, incluindo distribuições, correlações e métricas de performance dos modelos.
 
-- **Visualização de Anomalias**: Gráficos interativos, desenvolvidos com Chart.js, exibem a linha do tempo das anomalias, permitindo a fácil identificação de padrões e tendências. A performance de cada algoritmo também é visualizada em um gráfico de radar.
+- **Processamento em Tempo Real:** Capacidade de processar streams de dados em tempo real, com detecção instantânea de anomalias e atualização automática do dashboard.
 
-- **Sistema de Feedback**: Os usuários podem fornecer feedback sobre as anomalias detectadas, marcando-as como verdadeiros ou falsos positivos. Esse feedback pode ser utilizado para retreinar os modelos e melhorar a precisão do sistema ao longo do tempo.
+- **Exportação de Relatórios:** Funcionalidade para gerar e exportar relatórios detalhados em PDF com análises, gráficos e recomendações baseadas nos resultados da detecção.
 
-- **Exportação de Relatórios**: Relatórios detalhados em formato PDF podem ser gerados e exportados. Esses relatórios incluem um resumo das anomalias detectadas, métricas de performance dos modelos e uma lista das detecções recentes.
-
-- **Persistência de Dados com SQLite**: Todos os resultados de detecção, métricas de modelos e feedbacks são armazenados em um banco de dados SQLite, garantindo a persistência e a rastreabilidade dos dados.
-
-- **Monitoramento de Performance**: A performance de cada modelo é continuamente monitorada, com métricas como precisão, recall e F1-score. Essas métricas são exibidas no dashboard e podem ser consultadas através da API.
+- **Cache Inteligente:** Sistema de cache Redis integrado para otimizar performance e reduzir latência nas consultas frequentes.
 
 ### Arquitetura do Sistema
 
@@ -75,133 +66,123 @@ O diagrama a seguir ilustra a arquitetura do Sistema Avançado de Detecção de 
 
 ```mermaid
 graph TD
-    subgraph "Frontend"
-        A[Dashboard Interativo] --> B[API RESTful]
+    subgraph "Frontend React"
+        A[Dashboard Interativo] --> B[API Gateway]
+        A --> C[Visualizações em Tempo Real]
+        A --> D[Controles de Configuração]
+        A --> E[Sistema de Alertas]
     end
 
     subgraph "Backend Flask"
-        B --> C[Controlador da API]
-        C --> D[Motor de Detecção]
-        C --> E[Gerenciador de Alertas]
-        C --> F[Gerenciador de Dados]
+        B --> F[Controlador da API]
+        F --> G[Motor de Detecção]
+        F --> H[Gerenciador de Alertas]
+        F --> I[Gerenciador de Dados]
     end
 
     subgraph "Algoritmos de ML"
-        D --> G[Isolation Forest]
-        D --> H[One-Class SVM]
-        D --> I[Método Estatístico]
-        D --> J[Ensemble Method]
+        G --> J[Isolation Forest]
+        G --> K[One-Class SVM]
+        G --> L[Métodos Estatísticos]
+        G --> M[Ensemble Learning]
     end
 
     subgraph "Armazenamento"
-        F --> K[(SQLite Database)]
-        F --> L[(Cache Redis)]
+        I --> N[SQLite Database]
+        I --> O[Cache Redis]
     end
 
     subgraph "Notificações"
-        E --> M[Email Alerts]
-        E --> N[Webhook Notifications]
+        H --> P[Email Alerts]
+        H --> Q[Webhook Notifications]
     end
 
     subgraph "Monitoramento"
-        O[Métricas de Performance] --> F
-        P[Logs do Sistema] --> F
+        R[Métricas de Performance] --> S[Logs do Sistema]
+        T[Análise de Dados] --> U[Relatórios PDF]
     end
 
-    G --> O
-    H --> O
-    I --> O
-    J --> O
+    N -.->|Dados Históricos| G
+    O -.->|Cache de Resultados| F
+    G -.->|Anomalias Detectadas| H
 ```
 
 ### Como Executar o Projeto
 
-1.  **Clone o repositório:**
+#### Pré-requisitos
 
-    ```bash
-    git clone https://github.com/galafis/Anomaly-Detection-System.git
-    cd Anomaly-Detection-System
-    ```
+- Python 3.9 ou superior
+- Node.js 16 ou superior
+- Redis (opcional, para cache)
 
-2.  **Crie e ative um ambiente virtual:**
+#### Backend (Flask API)
 
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
+1. **Navegue até o diretório do projeto:**
+   ```shell
+   cd Anomaly-Detection-System
+   ```
 
-3.  **Instale as dependências:**
+2. **Instale as dependências Python:**
+   ```shell
+   pip install -r requirements.txt
+   ```
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+3. **Configure as variáveis de ambiente:**
+   ```shell
+   cp config/.env.example .env
+   # Edite o arquivo .env com suas configurações
+   ```
 
-4.  **Configure as variáveis de ambiente:**
+4. **Execute a aplicação Flask:**
+   ```shell
+   python src/app.py
+   ```
 
-    Crie um arquivo `.env` na raiz do projeto e adicione as seguintes variáveis para configurar o sistema de alertas por email:
+#### Frontend (Dashboard React)
 
-    ```
-    SMTP_SERVER=smtp.gmail.com
-    SMTP_PORT=587
-    ALERT_EMAIL=seu-email@gmail.com
-    ALERT_EMAIL_PASSWORD=sua-senha-de-app
-    ALERT_RECIPIENTS=destinatario1@example.com,destinatario2@example.com
-    ```
+1. **Navegue até o diretório do frontend:**
+   ```shell
+   cd frontend/anomaly-detection-demo
+   ```
 
-5.  **Execute a aplicação:**
+2. **Instale as dependências:**
+   ```shell
+   npm install
+   ```
 
-    ```bash
-    python3 advanced_app.py
-    ```
+3. **Execute a aplicação React:**
+   ```shell
+   npm run dev
+   ```
 
-6.  **Acesse o dashboard:**
-
-    Abra seu navegador e acesse `http://127.0.0.1:5000`.
-
-### Endpoints da API
-
-- `GET /`: Serve o dashboard interativo.
-- `POST /api/detect`: Realiza a detecção de anomalias em um conjunto de dados.
-- `POST /api/batch-detect`: Realiza a detecção em lote a partir de um arquivo CSV ou JSON.
-- `POST /api/train`: Treina os modelos de detecção com novos dados.
-- `GET /api/training-progress`: Retorna o progresso do treinamento.
-- `GET /api/metrics`: Retorna as métricas de performance dos modelos.
-- `GET /api/history`: Retorna o histórico de detecções de anomalias.
-- `POST /api/export-report`: Exporta um relatório detalhado em PDF.
-- `POST /api/feedback`: Envia feedback sobre uma detecção de anomalia.
-- `GET /api/status`: Retorna o status da API e do sistema.
-
----
+4. **Acesse o dashboard:**
+   Abra seu navegador e acesse `http://localhost:3000`
 
 ## 🇺🇸 Advanced Anomaly Detection System
 
 ### Overview
 
-This is a professional-grade anomaly detection system designed to identify unusual patterns in time-series data in real-time. Built with Python, Flask, and a modern interface, this project demonstrates a robust architecture and advanced features, making it a powerful tool for monitoring, security, and data analysis.
+This project presents an advanced real-time anomaly detection system, developed with modern machine learning technologies and robust architecture. The system is capable of identifying anomalous patterns in data using multiple detection algorithms, including Isolation Forest, One-Class SVM, statistical methods, and ensemble learning.
 
-The system offers an interactive dashboard, multiple detection algorithms, a configurable alert system, and a complete RESTful API for integration with other applications. It is a comprehensive solution for any scenario that requires the identification of outliers and anomalous events with high precision and performance.
+The solution includes a real-time interactive dashboard built with React, a robust RESTful API in Flask, automated alert system, and advanced analysis capabilities. It's a complete implementation that demonstrates best practices in developing machine learning systems for production.
 
 ### Key Features
 
-- **Real-time Interactive Dashboard**: A modern and responsive web interface, built with HTML, CSS, and JavaScript, that displays metrics, alerts, and data visualizations in real-time. The dashboard allows for continuous system monitoring and interactive analysis of results.
+- **Real-Time Interactive Dashboard:** Modern and responsive interface built with React that offers real-time visualization of data and detected anomalies. The dashboard includes dynamic charts, performance metrics, and interactive controls for algorithm configuration.
 
-- **Multiple Detection Algorithms**: The system integrates several anomaly detection algorithms, including **Isolation Forest**, **One-Class SVM**, and a statistical method based on **Z-score**. Additionally, an **Ensemble** mode combines the results of all algorithms for more robust and accurate detection.
+- **Multiple Detection Algorithms:** The system implements various anomaly detection algorithms, including Isolation Forest for isolation-based detection, One-Class SVM for one-class classification, traditional statistical methods, and ensemble learning to combine multiple models.
 
-- **Intelligent Alert System**: Alerts are automatically generated when high-criticality anomalies are detected. The system can be configured to send email notifications, allowing for a rapid response to important events.
+- **Complete RESTful API:** Robust API developed in Flask with endpoints for data upload, model configuration, detection execution, result querying, and alert management. The API follows REST standards and includes complete documentation.
 
-- **Complete RESTful API**: A comprehensive API allows for the integration of the system with other platforms. Available endpoints include anomaly detection, model training, history query, and performance metrics.
+- **Automated Alert System:** Intelligent notification system that sends email alerts when anomalies are detected. Includes customizable threshold configuration and professional email templates.
 
-- **Batch Data Processing**: In addition to real-time detection, the system supports batch data processing through the upload of CSV or JSON files. This allows for the analysis of large volumes of historical data.
+- **Advanced Statistical Analysis:** Integrated statistical analysis tools that provide detailed insights into data and detected anomalies, including distributions, correlations, and model performance metrics.
 
-- **Anomaly Visualization**: Interactive charts, developed with Chart.js, display the anomaly timeline, allowing for easy identification of patterns and trends. The performance of each algorithm is also visualized in a radar chart.
+- **Real-Time Processing:** Capability to process data streams in real-time, with instant anomaly detection and automatic dashboard updates.
 
-- **Feedback System**: Users can provide feedback on detected anomalies, marking them as true or false positives. This feedback can be used to retrain the models and improve the system's accuracy over time.
+- **Report Export:** Functionality to generate and export detailed PDF reports with analyses, charts, and recommendations based on detection results.
 
-- **Report Export**: Detailed reports in PDF format can be generated and exported. These reports include a summary of detected anomalies, model performance metrics, and a list of recent detections.
-
-- **Data Persistence with SQLite**: All detection results, model metrics, and feedback are stored in a SQLite database, ensuring data persistence and traceability.
-
-- **Performance Monitoring**: The performance of each model is continuously monitored, with metrics such as precision, recall, and F1-score. These metrics are displayed on the dashboard and can be queried through the API.
+- **Intelligent Cache:** Integrated Redis cache system to optimize performance and reduce latency in frequent queries.
 
 ### System Architecture
 
@@ -209,93 +190,121 @@ The following diagram illustrates the architecture of the Advanced Anomaly Detec
 
 ```mermaid
 graph TD
-    subgraph "User Interface"
-        A[Interactive Dashboard] --> B{RESTful API}
+    subgraph "Frontend React"
+        A[Interactive Dashboard] --> B[API Gateway]
+        A --> C[Real-Time Visualizations]
+        A --> D[Configuration Controls]
+        A --> E[Alert System]
     end
 
-    subgraph "Backend (Flask)"
-        B --> C[API Controller]
-        C --> D{Detection Engine}
-        C --> E[Alert Manager]
-        C --> F[Database Manager]
+    subgraph "Backend Flask"
+        B --> F[API Controller]
+        F --> G[Detection Engine]
+        F --> H[Alert Manager]
+        F --> I[Data Manager]
     end
 
-    subgraph "Detection Engine"
-        D --> G[Isolation Forest]
-        D --> H[One-Class SVM]
-        D --> I[Statistical Method]
-        D --> J[Ensemble]
+    subgraph "ML Algorithms"
+        G --> J[Isolation Forest]
+        G --> K[One-Class SVM]
+        G --> L[Statistical Methods]
+        G --> M[Ensemble Learning]
     end
 
-    subgraph "Data Storage"
-        F --> K[(SQLite Database)]
+    subgraph "Storage"
+        I --> N[SQLite Database]
+        I --> O[Redis Cache]
     end
 
-    subgraph "Alert System"
-        E --> L{Email}
-        E --> M{Webhook (future)}
+    subgraph "Notifications"
+        H --> P[Email Alerts]
+        H --> Q[Webhook Notifications]
     end
 
-    G --> F
-    H --> F
-    I --> F
-    J --> F
+    subgraph "Monitoring"
+        R[Performance Metrics] --> S[System Logs]
+        T[Data Analysis] --> U[PDF Reports]
+    end
+
+    N -.->|Historical Data| G
+    O -.->|Result Cache| F
+    G -.->|Detected Anomalies| H
 ```
 
 ### How to Run the Project
 
-1.  **Clone the repository:**
+#### Prerequisites
 
-    ```bash
-    git clone https://github.com/galafis/Anomaly-Detection-System.git
-    cd Anomaly-Detection-System
-    ```
+- Python 3.9 or higher
+- Node.js 16 or higher
+- Redis (optional, for caching)
 
-2.  **Create and activate a virtual environment:**
+#### Backend (Flask API)
 
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
+1. **Navigate to the project directory:**
+   ```shell
+   cd Anomaly-Detection-System
+   ```
 
-3.  **Install the dependencies:**
+2. **Install Python dependencies:**
+   ```shell
+   pip install -r requirements.txt
+   ```
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+3. **Configure environment variables:**
+   ```shell
+   cp config/.env.example .env
+   # Edit the .env file with your configurations
+   ```
 
-4.  **Configure environment variables:**
+4. **Run the Flask application:**
+   ```shell
+   python src/app.py
+   ```
 
-    Create a `.env` file in the project root and add the following variables to configure the email alert system:
+#### Frontend (React Dashboard)
 
-    ```
-    SMTP_SERVER=smtp.gmail.com
-    SMTP_PORT=587
-    ALERT_EMAIL=your-email@gmail.com
-    ALERT_EMAIL_PASSWORD=your-app-password
-    ALERT_RECIPIENTS=recipient1@example.com,recipient2@example.com
-    ```
+1. **Navigate to the frontend directory:**
+   ```shell
+   cd frontend/anomaly-detection-demo
+   ```
 
-5.  **Run the application:**
+2. **Install dependencies:**
+   ```shell
+   npm install
+   ```
 
-    ```bash
-    python3 advanced_app.py
-    ```
+3. **Run the React application:**
+   ```shell
+   npm run dev
+   ```
 
-6.  **Access the dashboard:**
+4. **Access the dashboard:**
+   Open your browser and go to `http://localhost:3000`
 
-    Open your browser and go to `http://127.0.0.1:5000`.
+## 📊 Tecnologias Utilizadas
 
-### API Endpoints
+- **Backend:** Python 3.9+, Flask, SQLAlchemy, Redis
+- **Machine Learning:** Scikit-Learn, XGBoost, NumPy, Pandas
+- **Frontend:** React 18+, Vite, Tailwind CSS, Chart.js
+- **Database:** SQLite, Redis Cache
+- **Deployment:** Docker, Docker Compose
+- **Testing:** Pytest, Jest, React Testing Library
 
-- `GET /`: Serves the interactive dashboard.
-- `POST /api/detect`: Performs anomaly detection on a dataset.
-- `POST /api/batch-detect`: Performs batch detection from a CSV or JSON file.
-- `POST /api/train`: Trains the detection models with new data.
-- `GET /api/training-progress`: Returns the training progress.
-- `GET /api/metrics`: Returns the performance metrics of the models.
-- `GET /api/history`: Returns the history of anomaly detections.
-- `POST /api/export-report`: Exports a detailed report in PDF.
-- `POST /api/feedback`: Submits feedback on an anomaly detection.
-- `GET /api/status`: Returns the status of the API and the system.
+## 🤝 Contribuindo
 
+Contribuições são bem-vindas! Por favor, leia o [CONTRIBUTING.md](CONTRIBUTING.md) para detalhes sobre nosso código de conduta e o processo para enviar pull requests.
+
+## 📄 Licença
+
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+## 👨‍💻 Autor
+
+**Gabriel Demetrios Lafis**
+- GitHub: [@galafis](https://github.com/galafis)
+- LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-lafis)
+
+---
+
+*Este projeto demonstra a implementação de um sistema de machine learning robusto e escalável, seguindo as melhores práticas da indústria para detecção de anomalias em tempo real.*

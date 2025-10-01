@@ -13,7 +13,7 @@
 ![License](https://img.shields.io/github/license/galafis/Anomaly-Detection-System?style=for-the-badge)
 ![Stars](https://img.shields.io/github/stars/galafis/Anomaly-Detection-System?style=for-the-badge)
 
-[**Ver Demo Interativa**](https://galafis.github.io/Anomaly-Detection-System-Demo/) | [**Documentação da API**](https://galafis.github.io/Anomaly-Detection-System/api-docs)
+[**Ver Código no GitHub**](https://github.com/galafis/Anomaly-Detection-System) | [**Documentação Completa**](https://github.com/galafis/Anomaly-Detection-System/blob/main/README.md)
 
 ![Advanced Anomaly Detection System](./advanced-hero-image.png)
 

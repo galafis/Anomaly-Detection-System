@@ -1,0 +1,7 @@
+name: Test Permissions
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Testing new token permissions"

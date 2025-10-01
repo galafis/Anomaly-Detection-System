@@ -4,7 +4,15 @@
 
 **Autor:** Gabriel Demetrios Lafis
 
+![Build Status](https://img.shields.io/github/actions/workflow/status/galafis/Anomaly-Detection-System/ci-cd.yml?style=for-the-badge)
+![License](https://img.shields.io/github/license/galafis/Anomaly-Detection-System?style=for-the-badge)
+![Stars](https://img.shields.io/github/stars/galafis/Anomaly-Detection-System?style=for-the-badge)
+
+[**Ver Demo Interativa**](https://galafis.github.io/Anomaly-Detection-System-Demo/) | [**Documentação da API**](https://galafis.github.io/Anomaly-Detection-System/api-docs)
+
 ![Advanced Anomaly Detection System](./advanced-hero-image.png)
+.png)
+-image.png
 
 ---
 

@@ -1,0 +1,7 @@
+name: Test New Token
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Testing with updated token"

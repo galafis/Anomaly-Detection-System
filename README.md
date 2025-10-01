@@ -10,10 +10,15 @@
 [![XGBoost](https://img.shields.io/badge/XGBoost-1.5+-red.svg)](https://xgboost.readthedocs.io)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/galafis/Anomaly-Detection-System.svg)](https://github.com/galafis/Anomaly-Detection-System/stargazers)
+[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Deployed-blue.svg)](https://galafis.github.io/Anomaly-Detection-System/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://hub.docker.com/r/galafis/anomaly-detection-system)
 
-[Ver Código no GitHub](https://github.com/galafis/Anomaly-Detection-System) | [Documentação Completa](https://github.com/galafis/Anomaly-Detection-System)
 
-![Advanced Anomaly Detection System](advanced-hero-image.png)
+[Ver Código no GitHub](https://github.com/galafis/Anomaly-Detection-System) | [Documentação Completa](https://github.com/galafis/Anomaly-Detection-System) | [Visualizar no GitHub Pages](https://galafis.github.io/Anomaly-Detection-System/)
+
+![Advanced Anomaly Detection System](frontend/assets/new-hero-image.png)
+
+
 
 ## 📁 Estrutura do Projeto
 

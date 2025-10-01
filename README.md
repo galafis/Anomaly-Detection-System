@@ -1,4 +1,4 @@
-> Este README.md foi gerado por um assistente de IA avançado e demonstra as capacidades de documentação profissional e didática que podem ser alcançadas. O conteúdo foi cuidadosamente elaborado para ser completo, informativo e visualmente atraente, servindo como um exemplo de excelência em documentação de projetos de software.
+
 
 # Advanced Anomaly Detection System
 
@@ -11,8 +11,6 @@
 [**Ver Demo Interativa**](https://galafis.github.io/Anomaly-Detection-System-Demo/) | [**Documentação da API**](https://galafis.github.io/Anomaly-Detection-System/api-docs)
 
 ![Advanced Anomaly Detection System](./advanced-hero-image.png)
-.png)
--image.png
 
 ---
 

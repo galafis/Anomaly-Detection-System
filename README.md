@@ -16,6 +16,8 @@
 
 [Ver Código no GitHub](https://github.com/galafis/Anomaly-Detection-System) | [Documentação Completa](https://github.com/galafis/Anomaly-Detection-System) | [Visualizar no GitHub Pages](https://galafis.github.io/Anomaly-Detection-System/)
 
+## 🖼️ Imagem Hero
+
 ![Advanced Anomaly Detection System](frontend/assets/new-hero-image.png)
 
 
@@ -216,24 +218,24 @@ graph TD
         G --> M[Ensemble Learning]
     end
 
-    subgraph "Storage"
+    subgraph "Armazenamento"
         I --> N[SQLite Database]
         I --> O[Redis Cache]
     end
 
-    subgraph "Notifications"
+    subgraph "Notificações"
         H --> P[Email Alerts]
         H --> Q[Webhook Notifications]
     end
 
-    subgraph "Monitoring"
+    subgraph "Monitoramento"
         R[Performance Metrics] --> S[System Logs]
         T[Data Analysis] --> U[PDF Reports]
     end
 
     N -.->|Historical Data| G
     O -.->|Result Cache| F
-    G -.->|Detected Anomalies| H
+    G -.->|Anomalias Detectadas| H
 ```
 
 ### How to Run the Project
@@ -284,7 +286,7 @@ graph TD
    npm run dev
    ```
 
-4. **Access the dashboard:**
+4. **Acesse o dashboard:**
    Open your browser and go to `http://localhost:3000`
 
 ## 📊 Tecnologias Utilizadas
@@ -313,3 +315,4 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 ---
 
 *Este projeto demonstra a implementação de um sistema de machine learning robusto e escalável, seguindo as melhores práticas da indústria para detecção de anomalias em tempo real.*
+

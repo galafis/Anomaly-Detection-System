@@ -4,41 +4,45 @@
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
 [![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)](https://flask.palletsprojects.com)
+[![React](https://img.shields.io/badge/React-18+-blue.svg)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-6.x-purple.svg)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-06B6D4.svg)](https://tailwindcss.com/)
+[![Chart.js](https://img.shields.io/badge/Chart.js-3.x-red.svg)](https://www.chartjs.org/)
 [![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.0+-orange.svg)](https://scikit-learn.org)
 [![Pandas](https://img.shields.io/badge/Pandas-1.3+-blue.svg)](https://pandas.pydata.org)
 [![NumPy](https://img.shields.io/badge/NumPy-1.21+-blue.svg)](https://numpy.org)
-[![XGBoost](https://img.shields.io/badge/XGBoost-1.5+-red.svg)](https://xgboost.readthedocs.io)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/galafis/Anomaly-Detection-System.svg)](https://github.com/galafis/Anomaly-Detection-System/stargazers)
 [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Deployed-blue.svg)](https://galafis.github.io/Anomaly-Detection-System/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://hub.docker.com/r/galafis/anomaly-detection-system)
 
-
-[Ver Código no GitHub](https://github.com/galafis/Anomaly-Detection-System) | [Documentação Completa](https://github.com/galafis/Anomaly-Detection-System) | [Visualizar no GitHub Pages](https://galafis.github.io/Anomaly-Detection-System/)
+[Ver Código no GitHub](https://github.com/galafis/Anomaly-Detection-System) | [Visualizar no GitHub Pages](https://galafis.github.io/Anomaly-Detection-System/)
 
 ## 🖼️ Imagem Hero
 
 ![Advanced Anomaly Detection System](frontend/assets/new-hero-image.png)
 
-
-
 ## 📁 Estrutura do Projeto
 
 ```
-📦 Advanced Anomaly Detection System
-├── 📂 src/                 # Código fonte principal
-│   ├── 📂 api/             # Endpoints da API
-│   ├── 📂 models/          # Modelos de dados
-│   ├── 📂 services/        # Lógica de negócio
-│   └── 📂 utils/           # Utilitários
-├── 📂 tests/               # Testes unitários e integração
-├── 📂 docs/                # Documentação (API.md)
-├── 📂 frontend/            # Interface do usuário
-│   ├── 📂 components/      # Componentes React
-│   ├── 📂 assets/          # Imagens e estilos
-│   └── 📂 public/          # Arquivos públicos
-├── 📂 config/              # Configurações (.env.example)
-└── 📄 requirements.txt     # Dependências Python
+📦 Anomaly-Detection-System
+├── 📂 src/                 # Código fonte principal do backend (Flask)
+│   ├── 📂 api/             # Endpoints da API Flask
+│   ├── 📂 models/          # Modelos de dados e classes
+│   ├── 📂 services/        # Lógica de negócio e serviços
+│   └── 📂 utils/           # Utilitários e funções auxiliares
+├── 📂 frontend/            # Aplicação React (Dashboard)
+│   ├── 📂 public/          # Arquivos estáticos públicos
+│   ├── 📂 src/             # Código fonte do React
+│   │   ├── 📂 assets/      # Imagens e outros recursos
+│   │   ├── 📂 components/  # Componentes React reutilizáveis
+│   │   └── 📄 App.jsx      # Componente principal da aplicação
+│   └── 📄 package.json     # Dependências e scripts do frontend
+├── 📂 models/              # Modelos de ML pré-treinados (gerados)
+├── 📄 .env.example         # Exemplo de variáveis de ambiente
+├── 📄 requirements.txt     # Dependências Python
+├── 📄 README.md            # Este arquivo
+└── ... (outros arquivos de configuração e desenvolvimento)
 ```
 
 ## 🇧🇷 Sistema Avançado de Detecção de Anomalias
@@ -142,14 +146,14 @@ graph TD
 
 4. **Execute a aplicação Flask:**
    ```shell
-   python src/app.py
+   python src/api/app.py
    ```
 
 #### Frontend (Dashboard React)
 
 1. **Navegue até o diretório do frontend:**
    ```shell
-   cd frontend/anomaly-detection-demo
+   cd frontend
    ```
 
 2. **Instale as dependências:**
@@ -163,7 +167,7 @@ graph TD
    ```
 
 4. **Acesse o dashboard:**
-   Abra seu navegador e acesse `http://localhost:3000`
+   Abra seu navegador e acesse `http://localhost:5173` (ou a porta indicada pelo Vite)
 
 ## 🇺🇸 Advanced Anomaly Detection System
 
@@ -258,41 +262,41 @@ graph TD
    pip install -r requirements.txt
    ```
 
-3. **Configure environment variables:**
+3. **Configure as variáveis de ambiente:**
    ```shell
    cp config/.env.example .env
-   # Edit the .env file with your configurations
+   # Edite o arquivo .env com suas configurações
    ```
 
-4. **Run the Flask application:**
+4. **Execute a aplicação Flask:**
    ```shell
-   python src/app.py
+   python src/api/app.py
    ```
 
 #### Frontend (React Dashboard)
 
-1. **Navigate to the frontend directory:**
+1. **Navegue até o diretório do frontend:**
    ```shell
-   cd frontend/anomaly-detection-demo
+   cd frontend
    ```
 
-2. **Install dependencies:**
+2. **Instale as dependências:**
    ```shell
    npm install
    ```
 
-3. **Run the React application:**
+3. **Execute a aplicação React:**
    ```shell
    npm run dev
    ```
 
 4. **Acesse o dashboard:**
-   Open your browser and go to `http://localhost:3000`
+   Open your browser and go to `http://localhost:5173` (or the port indicated by Vite)
 
 ## 📊 Tecnologias Utilizadas
 
 - **Backend:** Python 3.9+, Flask, SQLAlchemy, Redis
-- **Machine Learning:** Scikit-Learn, XGBoost, NumPy, Pandas
+- **Machine Learning:** Scikit-Learn, NumPy, Pandas
 - **Frontend:** React 18+, Vite, Tailwind CSS, Chart.js
 - **Database:** SQLite, Redis Cache
 - **Deployment:** Docker, Docker Compose
@@ -315,4 +319,3 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 ---
 
 *Este projeto demonstra a implementação de um sistema de machine learning robusto e escalável, seguindo as melhores práticas da indústria para detecção de anomalias em tempo real.*
-

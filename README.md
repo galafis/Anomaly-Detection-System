@@ -118,6 +118,44 @@ graph TD
     G -.->|Anomalias Detectadas| H
 ```
 
+### Screenshots
+
+#### Dashboard Principal
+
+![Dashboard Overview](https://via.placeholder.com/1200x600/1f2937/ffffff?text=Anomaly+Detection+Dashboard)
+
+*Dashboard interativo mostrando detecção de anomalias em tempo real, gráficos e métricas*
+
+#### Análise de Anomalias
+
+![Anomaly Analysis](https://via.placeholder.com/1200x400/1f2937/ffffff?text=Anomaly+Analysis+View)
+
+*Visualização detalhada das anomalias detectadas com análise estatística*
+
+### API Endpoints
+
+A API RESTful do sistema oferece os seguintes endpoints:
+
+| Método | Endpoint | Descrição | Exemplo de Uso |
+|--------|----------|-----------|----------------|
+| `GET` | `/api/status` | Verifica o status da API | `curl http://localhost:5000/api/status` |
+| `POST` | `/api/detect` | Detecta anomalias em dados fornecidos | `curl -X POST http://localhost:5000/api/detect -H "Content-Type: application/json" -d '{"features": [1.2, 3.4, 5.6]}'` |
+| `GET` | `/api/models` | Lista modelos disponíveis | `curl http://localhost:5000/api/models` |
+| `POST` | `/api/train` | Treina um novo modelo | `curl -X POST http://localhost:5000/api/train -H "Content-Type: application/json" -d '{"algorithm": "isolation_forest", "data": [...]}'` |
+| `GET` | `/api/results` | Obtém resultados de detecções anteriores | `curl http://localhost:5000/api/results` |
+
+**Exemplo de Resposta da API:**
+
+```json
+{
+  "status": "success",
+  "anomaly_detected": true,
+  "confidence": 0.87,
+  "algorithm": "isolation_forest",
+  "timestamp": "2024-10-09T20:00:00Z"
+}
+```
+
 ### Como Executar o Projeto
 
 #### Pré-requisitos
@@ -149,6 +187,11 @@ graph TD
    python src/api/app.py
    ```
 
+5. **Execute os testes do Backend:**
+   ```shell
+   export PYTHONPATH=$PYTHONPATH:$(pwd) && python3 -m pytest tests/
+   ```
+
 #### Frontend (Dashboard React)
 
 1. **Navegue até o diretório do frontend:**
@@ -158,7 +201,7 @@ graph TD
 
 2. **Instale as dependências:**
    ```shell
-   npm install
+   npm install --legacy-peer-deps
    ```
 
 3. **Execute a aplicação React:**
@@ -166,8 +209,14 @@ graph TD
    npm run dev
    ```
 
-4. **Acesse o dashboard:**
+4. **Execute os testes do Frontend:**
+   ```shell
+   npm test
+   ```
+
+5. **Acesse o dashboard:**
    Abra seu navegador e acesse `http://localhost:5173` (ou a porta indicada pelo Vite)
+
 
 ## 🇺🇸 Advanced Anomaly Detection System
 

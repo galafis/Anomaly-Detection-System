@@ -1,8 +1,8 @@
 # 📋 Audit Report - Anomaly Detection System
 
-**Data:** Outubro 2024  
+**Date:** October 2024  
 **Auditor:** GitHub Copilot  
-**Autor do Projeto:** Gabriel Demetrios Lafis
+**Project Author:** Gabriel Demetrios Lafis
 
 ---
 
@@ -133,7 +133,7 @@ Realizar uma auditoria completa do repositório em busca de:
 
 ##### 🐳 Docker
 - ✅ **Dockerfile** (backend)
-  - Python 3.9 base image
+  - Python 3.9 base image (Note: Python 3.11+ recommended for long-term support)
   - Multi-stage build
   - Health check
   - Otimizado para produção
@@ -230,7 +230,7 @@ Realizar uma auditoria completa do repositório em busca de:
 
 ### Arquivos Adicionados/Modificados
 
-#### Novos Arquivos (17)
+#### Novos Arquivos (13)
 1. `docs/ARCHITECTURE.md` - Arquitetura completa
 2. `docs/DEVELOPMENT.md` - Guia de desenvolvimento
 3. `docs/postman_collection.json` - Testes API
@@ -245,7 +245,7 @@ Realizar uma auditoria completa do repositório em busca de:
 12. `.github/workflows/ci-cd.yml` - CI/CD
 13. `AUDIT_REPORT.md` - Este relatório
 
-#### Arquivos Modificados (12)
+#### Arquivos Modificados (10)
 1. `README.md` - Completamente reescrito
 2. `docs/API.md` - Expandido 50x
 3. `CONTRIBUTING.md` - Expandido 10x

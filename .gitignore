@@ -40,6 +40,7 @@ coverage/
 *.lcov
 .coverage
 coverage.xml
+htmlcov/
 
 # nyc test coverage
 .nyc_output

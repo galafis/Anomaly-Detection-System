@@ -41,11 +41,68 @@
 │   │   ├── 📂 components/  # Componentes React reutilizáveis
 │   │   └── 📄 App.jsx      # Componente principal da aplicação
 │   └── 📄 package.json     # Dependências e scripts do frontend
+├── 📂 tests/               # Testes unitários e de integração
+├── 📂 docs/                # Documentação completa
+│   ├── 📄 API.md           # Documentação da API
+│   ├── 📄 ARCHITECTURE.md  # Arquitetura do sistema
+│   └── 📄 DEVELOPMENT.md   # Guia de desenvolvimento
+├── 📂 examples/            # Exemplos de uso
+│   ├── 📄 usage_example.py # Exemplos práticos em Python
+│   ├── 📄 normal_data.json # Dados de exemplo
+│   └── 📄 README.md        # Documentação dos exemplos
 ├── 📂 models/              # Modelos de ML pré-treinados (gerados)
+├── 📄 Dockerfile           # Imagem Docker do backend
+├── 📄 docker-compose.yml   # Orquestração de containers
 ├── 📄 .env.example         # Exemplo de variáveis de ambiente
 ├── 📄 requirements.txt     # Dependências Python
 ├── 📄 README.md            # Este arquivo
 └── ... (outros arquivos de configuração e desenvolvimento)
+```
+
+## 🚀 Quick Start - 3 Passos
+
+### Opção 1: Docker Compose (⚡ Mais Rápido)
+
+```bash
+# 1. Clone o repositório
+git clone https://github.com/galafis/Anomaly-Detection-System.git
+cd Anomaly-Detection-System
+
+# 2. Inicie todos os serviços
+docker-compose up -d
+
+# 3. Acesse
+# Backend: http://localhost:5000
+# Frontend: http://localhost:5173
+```
+
+### Opção 2: Instalação Manual
+
+```bash
+# 1. Clone o repositório
+git clone https://github.com/galafis/Anomaly-Detection-System.git
+cd Anomaly-Detection-System
+
+# 2. Backend
+pip install -r requirements.txt
+python src/api/simple_app.py
+
+# 3. Frontend (em outro terminal)
+cd frontend
+npm install --legacy-peer-deps
+npm run dev
+```
+
+### Teste Rápido
+
+```bash
+# Verificar status da API
+curl http://localhost:5000/api/status
+
+# Fazer uma predição
+curl -X POST http://localhost:5000/predict \
+  -H "Content-Type: application/json" \
+  -d @examples/normal_data.json
 ```
 
 ## 🇧🇷 Sistema Avançado de Detecção de Anomalias

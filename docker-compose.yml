@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  # Backend API
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: anomaly-detection-api
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data
+    depends_on:
+      - redis
+    restart: unless-stopped
+    networks:
+      - anomaly-network
+
+  # Frontend React Application
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: anomaly-detection-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_BASE_URL=http://localhost:5000
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - anomaly-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: anomaly-detection-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    networks:
+      - anomaly-network
+    command: redis-server --appendonly yes
+
+volumes:
+  redis-data:
+
+networks:
+  anomaly-network:
+    driver: bridge

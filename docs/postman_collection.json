@@ -1,0 +1,299 @@
+{
+  "info": {
+    "name": "Anomaly Detection System API",
+    "description": "Coleção completa de endpoints da API de Detecção de Anomalias",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Status & Info",
+      "item": [
+        {
+          "name": "Get API Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/status",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "status"]
+            },
+            "description": "Verifica o status e saúde da API"
+          },
+          "response": []
+        },
+        {
+          "name": "Get System Info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/info",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "info"]
+            },
+            "description": "Retorna informações detalhadas do sistema"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Home Page",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/",
+              "host": ["{{baseUrl}}"],
+              "path": [""]
+            },
+            "description": "Retorna a página HTML de informações"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Anomaly Detection",
+      "item": [
+        {
+          "name": "Predict Anomaly - Normal Data",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"features\": {{$randomArrayOfNumbers}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/predict",
+              "host": ["{{baseUrl}}"],
+              "path": ["predict"]
+            },
+            "description": "Detecta anomalias em dados normais (distribuição padrão)"
+          },
+          "response": []
+        },
+        {
+          "name": "Predict Anomaly - Custom Features",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"features\": [\n    1.2, 3.4, 5.6, 7.8, 9.0,\n    2.1, 4.3, 6.5, 8.7, 10.9,\n    // ... adicionar 990 valores adicionais para completar 1000\n    // Para teste rápido, use o script Pre-request abaixo\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/predict",
+              "host": ["{{baseUrl}}"],
+              "path": ["predict"]
+            },
+            "description": "Detecta anomalias com features customizadas"
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// Gerar 1000 valores aleatórios",
+                  "const features = [];",
+                  "for (let i = 0; i < 1000; i++) {",
+                  "    features.push(Math.random() * 10);",
+                  "}",
+                  "pm.variables.set('features', JSON.stringify(features));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Predict Anomaly - High Variance (Anomalous)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/predict",
+              "host": ["{{baseUrl}}"],
+              "path": ["predict"]
+            },
+            "description": "Teste com dados de alta variância que devem ser detectados como anomalia"
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// Gerar dados com alta variância (provável anomalia)",
+                  "const features = [];",
+                  "for (let i = 0; i < 1000; i++) {",
+                  "    features.push((Math.random() - 0.5) * 200);",
+                  "}",
+                  "",
+                  "pm.variables.set('requestBody', JSON.stringify({",
+                  "    features: features",
+                  "}));"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Response status is 200', function() {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response has is_anomaly field', function() {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('is_anomaly');",
+                  "});",
+                  "",
+                  "pm.test('Confidence is between 0 and 1', function() {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.confidence).to.be.at.least(0);",
+                  "    pm.expect(jsonData.confidence).to.be.at.most(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Error Handling",
+      "item": [
+        {
+          "name": "Predict - Missing Features",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": \"without features field\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/predict",
+              "host": ["{{baseUrl}}"],
+              "path": ["predict"]
+            },
+            "description": "Testa erro quando o campo 'features' está ausente"
+          },
+          "response": []
+        },
+        {
+          "name": "Predict - Invalid Features Count",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"features\": [1, 2, 3, 4, 5]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/predict",
+              "host": ["{{baseUrl}}"],
+              "path": ["predict"]
+            },
+            "description": "Testa erro quando o número de features é inválido (devem ser 1000)"
+          },
+          "response": []
+        },
+        {
+          "name": "Predict - No JSON Body",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/predict",
+              "host": ["{{baseUrl}}"],
+              "path": ["predict"]
+            },
+            "description": "Testa erro quando não há corpo JSON na requisição"
+          },
+          "response": []
+        },
+        {
+          "name": "404 - Invalid Endpoint",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/invalid-endpoint",
+              "host": ["{{baseUrl}}"],
+              "path": ["invalid-endpoint"]
+            },
+            "description": "Testa resposta para endpoint inexistente"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Chart from 'chart.js/auto';
 import './App.css';
 
@@ -7,7 +7,6 @@ function App() {
     const [anomaliesFound, setAnomaliesFound] = useState(0);
     const [isMonitoring, setIsMonitoring] = useState(false);
     const [algorithm, setAlgorithm] = useState('ensemble');
-    const [trainingProgress, setTrainingProgress] = useState({ is_training: false, progress: 0 });
     const [alerts, setAlerts] = useState([]);
     const [detections, setDetections] = useState([]);
     const [modelStats, setModelStats] = useState([]);
@@ -98,7 +97,7 @@ function App() {
             }
             clearInterval(monitoringIntervalRef.current);
         };
-    }, []);
+    }, [fetchModelStats, fetchHistory]);
 
     useEffect(() => {
         if (isMonitoring) {
@@ -109,17 +108,17 @@ function App() {
             clearInterval(monitoringIntervalRef.current);
         }
         return () => clearInterval(monitoringIntervalRef.current);
-    }, [isMonitoring, algorithm]);
+    }, [isMonitoring, generateSampleData]);
 
-    const addAlert = (message, type) => {
+    const addAlert = useCallback((message, type) => {
         const newAlert = { id: Date.now(), message, type };
         setAlerts(prevAlerts => [newAlert, ...prevAlerts.slice(0, 4)]);
         setTimeout(() => {
             setAlerts(prevAlerts => prevAlerts.filter(alert => alert.id !== newAlert.id));
         }, 5000);
-    };
+    }, []);
 
-    const fetchModelStats = async () => {
+    const fetchModelStats = useCallback(async () => {
         try {
             const response = await fetch(`${API_BASE_URL}/api/metrics`);
             const data = await response.json();
@@ -133,9 +132,9 @@ function App() {
             console.error('Error fetching model metrics:', error);
             addAlert(`Error fetching model metrics: ${error.message}`, 'danger');
         }
-    };
+    }, [API_BASE_URL, updatePerformanceChart, addAlert]);
 
-    const fetchHistory = async () => {
+    const fetchHistory = useCallback(async () => {
         try {
             const response = await fetch(`${API_BASE_URL}/api/history`);
             const data = await response.json();
@@ -151,9 +150,9 @@ function App() {
             console.error('Error fetching history:', error);
             addAlert(`Error fetching history: ${error.message}`, 'danger');
         }
-    };
+    }, [API_BASE_URL, updateTimelineChart, addAlert]);
 
-    const updateTimelineChart = (history) => {
+    const updateTimelineChart = useCallback((history) => {
         if (timelineChartInstance.current) {
             const labels = history.map(d => new Date(d.timestamp).toLocaleTimeString()).reverse();
             const scores = history.map(d => d.anomaly_score).reverse();
@@ -161,9 +160,9 @@ function App() {
             timelineChartInstance.current.data.datasets[0].data = scores.slice(-20);
             timelineChartInstance.current.update();
         }
-    };
+    }, []);
 
-    const updatePerformanceChart = (metrics) => {
+    const updatePerformanceChart = useCallback((metrics) => {
         if (performanceChartInstance.current) {
             const datasets = metrics.map((metric, index) => ({
                 label: metric.algorithm,
@@ -180,7 +179,7 @@ function App() {
             performanceChartInstance.current.data.datasets = datasets;
             performanceChartInstance.current.update();
         }
-    };
+    }, []);
 
     const startRealTimeMonitoring = () => {
         setIsMonitoring(true);
@@ -192,7 +191,7 @@ function App() {
         addAlert('Real-time monitoring stopped', 'warning');
     };
 
-    const generateSampleData = async () => {
+    const generateSampleData = useCallback(async () => {
         // Generate random features (assuming 1000 features as per backend)
         const features = Array.from({ length: 1000 }, () => Math.random() * 2 - 1);
 
@@ -228,7 +227,7 @@ function App() {
             console.error('Error during detection:', error);
             addAlert(`Detection error: ${error.message}`, 'danger');
         }
-    };
+    }, [API_BASE_URL, algorithm, detections, updateTimelineChart, addAlert]);
 
     const exportReport = async () => {
         addAlert('Generating report...', 'success');
@@ -289,19 +288,6 @@ function App() {
                             <option value="statistical">Statistical Method</option>
                         </select>
                     </div>
-
-                    {trainingProgress.is_training && (
-                        <div className="mb-4">
-                            <label className="block text-lg font-medium mb-2">Training Progress:</label>
-                            <div className="w-full bg-white bg-opacity-20 rounded-full h-4">
-                                <div
-                                    className="bg-green-500 h-4 rounded-full transition-all duration-300 ease-out"
-                                    style={{ width: `${trainingProgress.progress}%` }}
-                                ></div>
-                            </div>
-                            <p className="text-sm text-right mt-1">{trainingProgress.progress.toFixed(0)}% Complete</p>
-                        </div>
-                    )}
                 </section>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

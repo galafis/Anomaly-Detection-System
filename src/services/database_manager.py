@@ -2,7 +2,6 @@ import sqlite3
 import json
 import logging
 from typing import List, Dict
-from datetime import datetime
 
 from src.models.data_models import AnomalyResult, ModelMetrics
 

@@ -1,32 +1,19 @@
 import os
-import json
 import logging
-import numpy as np
-import pandas as pd
 from datetime import datetime
-from typing import List, Dict, Any, Optional, Tuple
 from dataclasses import asdict
 import threading  # Adicionado para a função train_models
+import io
 
+import numpy as np
+import pandas as pd
 from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
-
-import plotly.graph_objs as go
-import plotly.utils
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib import colors
-import io
 
-from src.models.data_models import (
-    AnomalyResult,
-    ModelMetrics,
-    AlgorithmType,
-    AlertLevel,
-)
-from src.services.database_manager import DatabaseManager
-from src.services.alert_manager import AlertManager
 from src.services.anomaly_detector import AdvancedAnomalyDetector
 
 # Configure logging

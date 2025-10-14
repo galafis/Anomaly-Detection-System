@@ -7,13 +7,12 @@ Author: Gabriel Demetrios Lafis
 
 import os
 import pickle
-import numpy as np
-import pandas as pd
-from flask import Flask, request, jsonify, render_template_string
-from datetime import datetime
 import logging
+from datetime import datetime
 from typing import List, Dict, Any
-import json
+
+import numpy as np
+from flask import Flask, request, jsonify, render_template_string
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -203,7 +202,7 @@ HTML_TEMPLATE = """
 <body>
     <div class="container">
         <h1>🔍 Anomaly Detection System</h1>
-        
+
         <div class="info-card">
             <h2>📊 System Information</h2>
             <p><strong>Author:</strong> Gabriel Demetrios Lafis</p>
@@ -215,17 +214,17 @@ HTML_TEMPLATE = """
 
         <div class="info-card">
             <h2>🚀 API Endpoints</h2>
-            
+
             <div class="endpoint">
                 <span class="method">GET</span> <span class="url">/</span><br>
                 Returns system information and status
             </div>
-            
+
             <div class="endpoint">
                 <span class="method">POST</span> <span class="url">/predict</span><br>
                 Performs anomaly detection on provided features
             </div>
-            
+
             <div class="endpoint">
                 <span class="method">GET</span> <span class="url">/api/status</span><br>
                 Returns API health status
@@ -235,13 +234,13 @@ HTML_TEMPLATE = """
         <div class="info-card">
             <h2>📝 Usage Example</h2>
             <p>Send a POST request to <code>/predict</code> with the following JSON structure:</p>
-            
+
             <div class="example">
 {
   "features": [0.5, 1.2, -0.3, 4.5, ...]  // Array of 1000 numerical values
 }
             </div>
-            
+
             <p>Example response:</p>
             <div class="example">
 {

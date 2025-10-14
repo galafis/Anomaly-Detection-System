@@ -34,25 +34,25 @@ class AlertManager:
             return
 
         try:
-            msg = MimeMultipart()
+            msg = MIMEMultipart()
             msg["From"] = self.email_config["email"]
             msg["To"] = ", ".join(self.email_config["recipients"])
             msg["Subject"] = f"Anomaly Alert - {result.alert_level.value.upper()}"
 
             body = f"""
             Anomaly Detected!
-            
+
             Algorithm: {result.algorithm}
             Confidence: {result.confidence:.2%}
             Anomaly Score: {result.anomaly_score:.4f}
             Alert Level: {result.alert_level.value.upper()}
             Timestamp: {result.timestamp}
             Description: {result.description}
-            
+
             Please review the anomaly detection dashboard for more details.
             """
 
-            msg.attach(MimeText(body, "plain"))
+            msg.attach(MIMEText(body, "plain"))
 
             server = smtplib.SMTP(
                 self.email_config["smtp_server"], self.email_config["smtp_port"]

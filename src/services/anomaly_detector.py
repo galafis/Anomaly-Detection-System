@@ -1,11 +1,10 @@
 import os
-import json
 import logging
-import numpy as np
+import time
 from datetime import datetime
 from typing import List
-import time
 
+import numpy as np
 from sklearn.ensemble import IsolationForest
 from sklearn.svm import OneClassSVM
 from sklearn.preprocessing import StandardScaler
@@ -164,7 +163,6 @@ class AdvancedAnomalyDetector:
         self, X: np.ndarray, algorithm: str, features: List[float]
     ) -> AnomalyResult:
         """Detect anomaly using single algorithm"""
-        start_time = time.time()
 
         if algorithm == AlgorithmType.ISOLATION_FOREST.value:
             prediction = self.models[algorithm].predict(X)[0]
@@ -191,8 +189,6 @@ class AdvancedAnomalyDetector:
 
         else:
             raise ValueError(f"Unknown algorithm: {algorithm}")
-
-        prediction_time = time.time() - start_time
 
         # Determine alert level
         alert_level = self._determine_alert_level(confidence, is_anomaly)

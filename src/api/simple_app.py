@@ -108,7 +108,7 @@ class AnomalyDetector:
             confidence = min(abs(prediction) / 100.0, 1.0)
             
             # Determine if it's an anomaly (simplified threshold)
-            is_anomaly = abs(prediction) > 50.0
+            is_anomaly = bool(abs(prediction) > 50.0)
             
             return {
                 'prediction': float(prediction),
@@ -273,7 +273,7 @@ def predict():
     """
     try:
         # Get JSON data from request
-        data = request.get_json()
+        data = request.get_json(force=True, silent=True)
         
         if not data:
             return jsonify({

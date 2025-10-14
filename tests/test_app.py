@@ -7,11 +7,15 @@ Author: Gabriel Demetrios Lafis
 import unittest
 import json
 import os
+import sys
 import tempfile
 import numpy as np
 from unittest.mock import patch, MagicMock
 
-from app import app, AnomalyDetector, TaskType
+# Add src directory to path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
+from src.api.simple_app import app, AnomalyDetector
 
 class TestAnomalyDetector(unittest.TestCase):
     """Test cases for AnomalyDetector class"""

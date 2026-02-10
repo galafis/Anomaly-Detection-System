@@ -198,7 +198,7 @@ def export_report():
         Report generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         Total anomalies analyzed: {len(anomalies)}
         Anomalies detected: {sum(1 for a in anomalies if a['is_anomaly'])}
-        Detection rate: {(sum(1 for a in anomalies if a['is_anomaly']) / len(anomalies) * 100):.1f}%
+        Detection rate: {(sum(1 for a in anomalies if a['is_anomaly']) / len(anomalies) * 100) if anomalies else 0:.1f}%
         """
 
         summary = Paragraph(summary_text, styles["Normal"])

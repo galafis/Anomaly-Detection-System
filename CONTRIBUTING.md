@@ -91,7 +91,7 @@ Aguarde feedback da comunidade antes de implementar.
 
 ```bash
 # Fork o repositório no GitHub, então:
-git clone https://github.com/SEU-USUARIO/Anomaly-Detection-System.git
+git clone https://github.com/<your-username>/Anomaly-Detection-System.git
 cd Anomaly-Detection-System
 ```
 

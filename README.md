@@ -2,24 +2,18 @@
 
 **Autor:** Gabriel Demetrios Lafis
 
-[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
-[![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)](https://flask.palletsprojects.com)
+[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
+[![Flask](https://img.shields.io/badge/Flask-2.3+-green.svg)](https://flask.palletsprojects.com)
 [![React](https://img.shields.io/badge/React-18+-blue.svg)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-6.x-purple.svg)](https://vitejs.dev/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-06B6D4.svg)](https://tailwindcss.com/)
 [![Chart.js](https://img.shields.io/badge/Chart.js-3.x-red.svg)](https://www.chartjs.org/)
-[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.0+-orange.svg)](https://scikit-learn.org)
-[![Pandas](https://img.shields.io/badge/Pandas-1.3+-blue.svg)](https://pandas.pydata.org)
-[![NumPy](https://img.shields.io/badge/NumPy-1.21+-blue.svg)](https://numpy.org)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3+-orange.svg)](https://scikit-learn.org)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://hub.docker.com/r/galafis/anomaly-detection-system)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/galafis/Anomaly-Detection-System.svg)](https://github.com/galafis/Anomaly-Detection-System/stargazers)
-[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Deployed-blue.svg)](https://galafis.github.io/Anomaly-Detection-System/)
-[![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://hub.docker.com/r/galafis/anomaly-detection-system)
-[![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-green.svg)](https://github.com/galafis/Anomaly-Detection-System/actions)
-[![Code Quality](https://img.shields.io/badge/Code%20Quality-A+-brightgreen.svg)](https://github.com/galafis/Anomaly-Detection-System)
-[![Tests](https://img.shields.io/badge/Tests-Passing-success.svg)](https://github.com/galafis/Anomaly-Detection-System/actions)
 
-[Ver Código no GitHub](https://github.com/galafis/Anomaly-Detection-System) | [Visualizar no GitHub Pages](https://galafis.github.io/Anomaly-Detection-System/) | [Documentação](docs/API.md)
+[Ver Código no GitHub](https://github.com/galafis/Anomaly-Detection-System) | [Documentação](docs/API.md)
 
 ## 🖼️ Imagem Hero
 
@@ -50,10 +44,10 @@
 │   ├── 📄 usage_example.py # Exemplos práticos em Python
 │   ├── 📄 normal_data.json # Dados de exemplo
 │   └── 📄 README.md        # Documentação dos exemplos
-├── 📂 models/              # Modelos de ML pré-treinados (gerados)
+├── 📂 config/              # Configurações e variáveis de ambiente
+│   └── 📄 .env.example     # Exemplo de variáveis de ambiente
 ├── 📄 Dockerfile           # Imagem Docker do backend
 ├── 📄 docker-compose.yml   # Orquestração de containers
-├── 📄 .env.example         # Exemplo de variáveis de ambiente
 ├── 📄 requirements.txt     # Dependências Python
 ├── 📄 README.md            # Este arquivo
 └── ... (outros arquivos de configuração e desenvolvimento)
@@ -165,7 +159,6 @@ graph TD
 
     subgraph "Notificações"
         H --> P[Email Alerts]
-        H --> Q[Webhook Notifications]
     end
 
     subgraph "Monitoramento"
@@ -178,65 +171,14 @@ graph TD
     G -.->|Anomalias Detectadas| H
 ```
 
-### Screenshots
+### Interface do Sistema
 
-#### 📱 Dashboard Principal
+O sistema conta com um dashboard interativo construído em React que oferece:
 
-![Dashboard Overview](https://via.placeholder.com/1200x600/1a1a2e/ffffff?text=Anomaly+Detection+Dashboard+-+Real-time+Monitoring)
-
-*Dashboard interativo mostrando detecção de anomalias em tempo real, gráficos e métricas de performance*
-
-**Características do Dashboard:**
-- 📊 Visualização em tempo real de anomalias detectadas
-- 📈 Gráficos interativos com Chart.js
-- 🎯 Métricas de performance dos modelos
-- ⚙️ Controles para seleção de algoritmos
-- 🔔 Painel de alertas e notificações
-
----
-
-#### 🔍 Análise de Anomalias
-
-![Anomaly Analysis](https://via.placeholder.com/1200x400/16213e/ffffff?text=Detailed+Anomaly+Analysis+View)
-
-*Visualização detalhada das anomalias detectadas com análise estatística e insights*
-
-**Funcionalidades da Análise:**
-- 📊 Análise estatística detalhada
-- 🎨 Visualização de distribuições
-- 📉 Scores de confiança
-- 🔬 Detalhamento por algoritmo
-- 📋 Histórico de detecções
-
----
-
-#### ⚙️ Painel de Controle
-
-![Control Panel](https://via.placeholder.com/1200x400/0f3460/ffffff?text=Algorithm+Control+Panel)
-
-*Painel de controle para configuração de algoritmos e parâmetros de detecção*
-
-**Controles Disponíveis:**
-- 🤖 Seleção de algoritmos (Isolation Forest, One-Class SVM, Statistical, Ensemble)
-- 🎚️ Ajuste de thresholds de sensibilidade
-- ⏱️ Configuração de intervalos de monitoramento
-- 🔄 Treinamento de modelos
-- 💾 Exportação de resultados
-
----
-
-#### 📊 Métricas e Performance
-
-![Performance Metrics](https://via.placeholder.com/1200x400/533483/ffffff?text=Model+Performance+Metrics)
-
-*Métricas detalhadas de performance dos modelos de detecção*
-
-**Métricas Monitoradas:**
-- ✅ Precision, Recall, F1-Score
-- ⏱️ Latência de predições
-- 📈 Taxa de detecção de anomalias
-- 🎯 Accuracy dos modelos
-- 📊 Comparação entre algoritmos
+- **Painel Principal:** Monitoramento em tempo real de anomalias detectadas, gráficos interativos com Chart.js e métricas de performance dos modelos.
+- **Análise Detalhada:** Visualização de distribuições, scores de confiança, detalhamento por algoritmo e histórico de detecções.
+- **Painel de Controle:** Seleção de algoritmos (Isolation Forest, One-Class SVM, Statistical, Ensemble), ajuste de thresholds e treinamento de modelos.
+- **Métricas de Performance:** Acompanhamento de Precision, Recall, F1-Score, latência de predições e comparação entre algoritmos.
 
 ### API Endpoints
 
@@ -547,13 +489,11 @@ VITE_ENABLE_DEBUG=false
 
 ### Boas Práticas Implementadas
 
-- ✅ Validação de entrada de dados
-- ✅ Sanitização de inputs
-- ✅ CORS configurado adequadamente
-- ✅ Rate limiting na API
-- ✅ Headers de segurança HTTP
-- ✅ Proteção contra XSS e CSRF
-- ✅ Secrets não commitados no Git
+- Validação de entrada de dados na API
+- CORS configurado adequadamente
+- Secrets não commitados no Git
+- Headers de segurança HTTP via Nginx (X-Frame-Options, X-Content-Type-Options, X-XSS-Protection)
+- Container Docker com usuário não-root
 
 ### Configuração de CORS
 
@@ -675,7 +615,6 @@ graph TD
 
     subgraph "Notificações"
         H --> P[Email Alerts]
-        H --> Q[Webhook Notifications]
     end
 
     subgraph "Monitoramento"
@@ -741,12 +680,12 @@ graph TD
 
 ## 📊 Tecnologias Utilizadas
 
-- **Backend:** Python 3.9+, Flask, SQLAlchemy, Redis
+- **Backend:** Python 3.11+, Flask, SQLite
 - **Machine Learning:** Scikit-Learn, NumPy, Pandas
 - **Frontend:** React 18+, Vite, Tailwind CSS, Chart.js
-- **Database:** SQLite, Redis Cache
-- **Deployment:** Docker, Docker Compose
-- **Testing:** Pytest, Jest, React Testing Library
+- **Database:** SQLite
+- **Deployment:** Docker, Docker Compose, Redis (cache em container)
+- **Testing:** Pytest
 
 ## 🤝 Contribuindo
 

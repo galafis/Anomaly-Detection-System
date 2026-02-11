@@ -8,7 +8,6 @@
 [![Vite](https://img.shields.io/badge/Vite-6.x-purple.svg)](https://vitejs.dev/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-06B6D4.svg)](https://tailwindcss.com/)
 [![Chart.js](https://img.shields.io/badge/Chart.js-3.x-red.svg)](https://www.chartjs.org/)
-[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3+-orange.svg)](https://scikit-learn.org)
 [![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://hub.docker.com/r/galafis/anomaly-detection-system)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/galafis/Anomaly-Detection-System.svg)](https://github.com/galafis/Anomaly-Detection-System/stargazers)

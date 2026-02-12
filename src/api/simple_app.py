@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Anomaly Detection System API
-Real-time anomaly detection using XGBoost regression model
+Real-time anomaly detection using RandomForest regression model
 Author: Gabriel Demetrios Lafis
 """
 
@@ -13,17 +13,19 @@ from typing import List, Dict, Any
 
 import numpy as np
 from flask import Flask, request, jsonify, render_template_string
+from flask_cors import CORS
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
+CORS(app)
 
 
 class AnomalyDetector:
     """
-    Anomaly Detection System using XGBoost regression model
+    Anomaly Detection System using RandomForest regression model
     """
 
     def __init__(self, model_path: str = "regressor_model.pkl"):
@@ -33,7 +35,7 @@ class AnomalyDetector:
         self.load_model()
 
     def load_model(self):
-        """Load the pre-trained XGBoost model"""
+        """Load the pre-trained model"""
         try:
             if os.path.exists(self.model_path):
                 with open(self.model_path, "rb") as f:
@@ -208,7 +210,7 @@ HTML_TEMPLATE = """
             <p><strong>Author:</strong> Gabriel Demetrios Lafis</p>
             <p><strong>Version:</strong> 1.0.0</p>
             <p><strong>Status:</strong> <span style="color: #4CAF50;">Active</span></p>
-            <p><strong>Model:</strong> XGBoost Regression</p>
+            <p><strong>Model:</strong> RandomForest Regression</p>
             <p><strong>Features:</strong> 1000 dimensions</p>
         </div>
 
@@ -329,11 +331,11 @@ def info():
     return jsonify(
         {
             "project": "Anomaly Detection System",
-            "description": "Real-time anomaly detection using XGBoost regression model",
+            "description": "Real-time anomaly detection using RandomForest regression model",
             "author": "Gabriel Demetrios Lafis",
             "version": "1.0.0",
             "features": {
-                "model_type": "XGBoost Regression",
+                "model_type": "RandomForest Regression",
                 "feature_dimensions": detector.feature_count,
                 "real_time_prediction": True,
                 "anomaly_detection": True,

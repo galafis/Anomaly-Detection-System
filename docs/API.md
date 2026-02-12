@@ -54,7 +54,7 @@ curl http://localhost:5000/api/status
   "system": "Anomaly Detection System",
   "version": "1.0.0",
   "author": "Gabriel Demetrios Lafis",
-  "model_type": "XGBoost Regression",
+  "model_type": "RandomForest Regression",
   "feature_count": 1000,
   "description": "Real-time anomaly detection using advanced machine learning algorithms"
 }

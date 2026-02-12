@@ -292,50 +292,38 @@ class AdvancedAnomalyDetector:
             return f"{algorithm} classified as normal with {confidence:.1%} confidence"
 
     def get_model_metrics(self) -> List[ModelMetrics]:
-        """Get performance metrics for all models.
+        """Get operational metrics for all loaded models.
 
-        Returns baseline metrics from initial training on synthetic data.
-        For production use, these should be computed against a labeled
-        validation set.
+        Precision, recall, f1_score, and accuracy are reported as 0.0
+        because computing them requires a labeled validation set, which
+        is not available at runtime.  prediction_time is measured by
+        running a single sample through each model.
         """
-        baseline_metrics = {
-            AlgorithmType.ISOLATION_FOREST.value: {
-                "precision": 0.91,
-                "recall": 0.85,
-                "f1_score": 0.88,
-                "accuracy": 0.93,
-                "training_time": 2.4,
-                "prediction_time": 0.003,
-            },
-            AlgorithmType.ONE_CLASS_SVM.value: {
-                "precision": 0.87,
-                "recall": 0.82,
-                "f1_score": 0.84,
-                "accuracy": 0.90,
-                "training_time": 4.1,
-                "prediction_time": 0.005,
-            },
-        }
-
         metrics = []
         for algorithm in self.models.keys():
-            m = baseline_metrics.get(algorithm, {
-                "precision": 0.85,
-                "recall": 0.80,
-                "f1_score": 0.82,
-                "accuracy": 0.88,
-                "training_time": 3.0,
-                "prediction_time": 0.004,
-            })
+            # Measure actual prediction latency on a single sample
+            sample = np.random.randn(1, self.feature_count)
+            try:
+                if (
+                    algorithm == AlgorithmType.ONE_CLASS_SVM.value
+                    and algorithm in self.scalers
+                ):
+                    sample = self.scalers[algorithm].transform(sample)
+                start = time.time()
+                self.models[algorithm].predict(sample)
+                prediction_time = time.time() - start
+            except Exception:
+                prediction_time = 0.0
+
             metrics.append(
                 ModelMetrics(
                     algorithm=algorithm,
-                    precision=m["precision"],
-                    recall=m["recall"],
-                    f1_score=m["f1_score"],
-                    accuracy=m["accuracy"],
-                    training_time=m["training_time"],
-                    prediction_time=m["prediction_time"],
+                    precision=0.0,
+                    recall=0.0,
+                    f1_score=0.0,
+                    accuracy=0.0,
+                    training_time=0.0,
+                    prediction_time=round(prediction_time, 6),
                     last_updated=datetime.now(),
                 )
             )

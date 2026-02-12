@@ -17,6 +17,7 @@ function App() {
 
     const timelineChartInstance = useRef(null);
     const performanceChartInstance = useRef(null);
+    const generateSampleDataRef = useRef(null);
 
     const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
@@ -97,18 +98,19 @@ function App() {
             }
             clearInterval(monitoringIntervalRef.current);
         };
-    }, [fetchModelStats, fetchHistory]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect(() => {
         if (isMonitoring) {
             monitoringIntervalRef.current = setInterval(() => {
-                generateSampleData();
+                generateSampleDataRef.current();
             }, 2000);
         } else {
             clearInterval(monitoringIntervalRef.current);
         }
         return () => clearInterval(monitoringIntervalRef.current);
-    }, [isMonitoring, generateSampleData]);
+    }, [isMonitoring]);
 
     const addAlert = useCallback((message, type) => {
         const newAlert = { id: Date.now(), message, type };
@@ -228,6 +230,10 @@ function App() {
             addAlert(`Detection error: ${error.message}`, 'danger');
         }
     }, [API_BASE_URL, algorithm, detections, updateTimelineChart, addAlert]);
+
+    useEffect(() => {
+        generateSampleDataRef.current = generateSampleData;
+    }, [generateSampleData]);
 
     const exportReport = async () => {
         addAlert('Generating report...', 'success');

@@ -17,7 +17,6 @@ graph TB
     
     subgraph "API Gateway Layer"
         GATE[Flask API Gateway]
-        AUTH[Authentication Middleware]
         VALID[Request Validator]
     end
     
@@ -38,20 +37,17 @@ graph TB
     
     subgraph "Data Layer"
         SQL[(SQLite Database)]
-        REDIS[(Redis Cache)]
         FILES[Model Files .pkl]
     end
     
     subgraph "External Services"
         EMAIL[Email Service]
-        WEBHOOK[Webhook Service]
     end
     
     UI --> GATE
     VIZ --> GATE
     CTRL --> GATE
-    GATE --> AUTH
-    AUTH --> VALID
+    GATE --> VALID
     VALID --> DET
     VALID --> ALT
     VALID --> DB_MGR
@@ -66,12 +62,10 @@ graph TB
     
     ENS --> DB_MGR
     DB_MGR --> SQL
-    DB_MGR --> REDIS
     
     DET --> FILES
     DET --> ALT
     ALT --> EMAIL
-    ALT --> WEBHOOK
     
     DET --> REP
     REP --> ALERT
@@ -80,7 +74,6 @@ graph TB
     style GATE fill:#f3e5f5
     style DET fill:#e8f5e9
     style SQL fill:#fff3e0
-    style REDIS fill:#fce4ec
 ```
 
 ## 🔄 Fluxo de Dados Detalhado
@@ -126,7 +119,6 @@ sequenceDiagram
 - Vite 6.x
 - TailwindCSS 3.x
 - Chart.js 3.x
-- Shadcn/ui components
 
 **Responsabilidades:**
 - Interface de usuário interativa
@@ -155,7 +147,6 @@ frontend/
 - Python 3.9+
 - Flask 2.0+
 - Flask-CORS
-- SQLAlchemy
 
 **Responsabilidades:**
 - API RESTful
@@ -224,11 +215,6 @@ src/
 - Histórico de alertas
 - Métricas de performance
 
-#### Redis Cache
-- Cache de resultados recentes
-- Sessões de usuário
-- Dados temporários
-
 #### Model Storage
 - Modelos .pkl serializados
 - Versionamento de modelos
@@ -238,7 +224,6 @@ src/
 
 **Canais de Notificação:**
 - Email (SMTP)
-- Webhooks (HTTP POST)
 - In-app notifications
 
 **Níveis de Alerta:**
@@ -248,11 +233,6 @@ src/
 - 🔴 CRITICAL: Anomalias críticas
 
 ## 🔐 Segurança
-
-### Autenticação
-- JWT tokens
-- API key authentication
-- Rate limiting
 
 ### Validação
 - Input sanitization
@@ -273,18 +253,14 @@ graph LR
     LB --> API2[Flask API 2]
     LB --> API3[Flask API 3]
     
-    API1 --> REDIS[Redis Cache]
-    API2 --> REDIS
-    API3 --> REDIS
-    
-    REDIS --> DB[(Database)]
+    API1 --> DB[(Database)]
+    API2 --> DB
+    API3 --> DB
 ```
 
 ### Estratégias de Otimização
-1. **Caching**: Redis para resultados frequentes
-2. **Async Processing**: Celery para tarefas pesadas
-3. **Database Indexing**: Índices em campos críticos
-4. **Model Optimization**: Quantização e pruning
+1. **Database Indexing**: Índices em campos críticos
+2. **Model Optimization**: Quantização e pruning
 
 ## 🔄 CI/CD Pipeline
 
@@ -299,10 +275,9 @@ graph LR
 
 ### Etapas:
 1. **Code Quality**: ESLint, Pylint, Black
-2. **Testing**: Pytest, Jest
+2. **Testing**: Pytest
 3. **Build**: Docker multi-stage builds
-4. **Deploy**: Docker Compose / Kubernetes
-5. **Monitor**: Prometheus + Grafana
+4. **Deploy**: Docker Compose
 
 ## 📈 Monitoramento e Observabilidade
 
@@ -315,7 +290,6 @@ graph LR
 ### Logs
 - Estruturados em JSON
 - Níveis: DEBUG, INFO, WARNING, ERROR, CRITICAL
-- Armazenamento: ElasticSearch / CloudWatch
 
 ### Alertas de Sistema
 - CPU > 80%
@@ -330,20 +304,11 @@ graph LR
 services:
   frontend:
     build: ./frontend
-    ports: ["5173:5173"]
+    ports: ["5173:80"]
   
   backend:
     build: ./
     ports: ["5000:5000"]
-    depends_on:
-      - redis
-      - db
-  
-  redis:
-    image: redis:alpine
-    
-  db:
-    image: postgres:14
 ```
 
 ### Kubernetes (Produção)
@@ -380,4 +345,4 @@ spec:
 
 **Autor:** Gabriel Demetrios Lafis  
 **Versão:** 1.0.0  
-**Última Atualização:** Outubro 2024
+**Última Atualização:** Fevereiro 2026

@@ -22,7 +22,6 @@
 - **npm/pnpm**: Gerenciador de pacotes
 - **Git**: Controle de versão
 - **Docker** (opcional): Para containerização
-- **Redis** (opcional): Para cache
 
 ### Setup Rápido
 

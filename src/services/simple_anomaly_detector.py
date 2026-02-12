@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 class AnomalyDetector:
     """
-    Anomaly Detection System using XGBoost regression model
+    Anomaly Detection System using RandomForest regression model
     """
 
     def __init__(self, model_path: str = "regressor_model.pkl"):
@@ -20,7 +20,7 @@ class AnomalyDetector:
         self.load_model()
 
     def load_model(self):
-        """Load the pre-trained XGBoost model"""
+        """Load the pre-trained model"""
         try:
             if os.path.exists(self.model_path):
                 with open(self.model_path, "rb") as f:
@@ -99,7 +99,7 @@ class AnomalyDetector:
             confidence = min(abs(prediction) / 100.0, 1.0)
 
             # Determine if it's an anomaly (simplified threshold)
-            is_anomaly = abs(prediction) > 50.0
+            is_anomaly = bool(abs(prediction) > 50.0)
 
             return {
                 "prediction": float(prediction),

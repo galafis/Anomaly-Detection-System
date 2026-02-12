@@ -122,8 +122,6 @@ A solução inclui um dashboard interativo em tempo real construído com React, 
 
 - **Exportação de Relatórios:** Funcionalidade para gerar e exportar relatórios detalhados em PDF com análises, gráficos e recomendações baseadas nos resultados da detecção.
 
-- **Cache Inteligente:** Sistema de cache Redis integrado para otimizar performance e reduzir latência nas consultas frequentes.
-
 ### Arquitetura do Sistema
 
 O diagrama a seguir ilustra a arquitetura do Sistema Avançado de Detecção de Anomalias:
@@ -153,7 +151,6 @@ graph TD
 
     subgraph "Armazenamento"
         I --> N[SQLite Database]
-        I --> O[Cache Redis]
     end
 
     subgraph "Notificações"
@@ -166,7 +163,6 @@ graph TD
     end
 
     N -.->|Dados Históricos| G
-    O -.->|Cache de Resultados| F
     G -.->|Anomalias Detectadas| H
 ```
 
@@ -209,7 +205,6 @@ A API RESTful do sistema oferece os seguintes endpoints:
 
 - Python 3.9 ou superior
 - Node.js 16 ou superior
-- Redis (opcional, para cache)
 
 #### Backend (Flask API)
 
@@ -290,7 +285,6 @@ docker-compose down
 **Serviços incluídos:**
 - 🐍 Backend API (porta 5000)
 - ⚛️ Frontend React (porta 5173)
-- 🗄️ Redis Cache (porta 6379)
 
 ### Docker Individual
 
@@ -430,15 +424,6 @@ npm run build
 | 5000 features     | ~200ms      | 5 req/s    |
 | 10000 features    | ~400ms      | 2.5 req/s  |
 
-### Precisão dos Modelos
-
-| Algoritmo          | Precision | Recall | F1-Score |
-|--------------------|-----------|--------|----------|
-| Isolation Forest   | 0.87      | 0.85   | 0.86     |
-| One-Class SVM      | 0.82      | 0.80   | 0.81     |
-| Statistical        | 0.79      | 0.77   | 0.78     |
-| Ensemble (Combined)| 0.91      | 0.89   | 0.90     |
-
 ---
 
 ## 🔧 Configuração Avançada
@@ -451,12 +436,6 @@ Crie um arquivo `.env` na raiz do projeto:
 # Flask Configuration
 FLASK_APP=src/api/app.py
 FLASK_ENV=production
-SECRET_KEY=sua-chave-secreta-aqui
-
-# Redis Configuration
-REDIS_HOST=localhost
-REDIS_PORT=6379
-REDIS_DB=0
 
 # Database Configuration
 DATABASE_URL=sqlite:///anomaly_detection.db
@@ -466,10 +445,6 @@ SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=seu-email@gmail.com
 SMTP_PASSWORD=sua-senha
-
-# API Configuration
-API_RATE_LIMIT=100
-API_TIMEOUT=30
 ```
 
 ### Frontend Configuration
@@ -491,7 +466,6 @@ VITE_ENABLE_DEBUG=false
 - Validação de entrada de dados na API
 - CORS configurado adequadamente
 - Secrets não commitados no Git
-- Headers de segurança HTTP via Nginx (X-Frame-Options, X-Content-Type-Options, X-XSS-Protection)
 - Container Docker com usuário não-root
 
 ### Configuração de CORS
@@ -578,8 +552,6 @@ The solution includes a real-time interactive dashboard built with React, a robu
 
 - **Report Export:** Functionality to generate and export detailed PDF reports with analyses, charts, and recommendations based on detection results.
 
-- **Intelligent Cache:** Integrated Redis cache system to optimize performance and reduce latency in frequent queries.
-
 ### System Architecture
 
 The following diagram illustrates the architecture of the Advanced Anomaly Detection System:
@@ -609,7 +581,6 @@ graph TD
 
     subgraph "Armazenamento"
         I --> N[SQLite Database]
-        I --> O[Redis Cache]
     end
 
     subgraph "Notificações"
@@ -622,7 +593,6 @@ graph TD
     end
 
     N -.->|Historical Data| G
-    O -.->|Result Cache| F
     G -.->|Anomalias Detectadas| H
 ```
 
@@ -632,7 +602,6 @@ graph TD
 
 - Python 3.9 or higher
 - Node.js 16 or higher
-- Redis (optional, for caching)
 
 #### Backend (Flask API)
 
@@ -683,7 +652,7 @@ graph TD
 - **Machine Learning:** Scikit-Learn, NumPy, Pandas
 - **Frontend:** React 18+, Vite, Tailwind CSS, Chart.js
 - **Database:** SQLite
-- **Deployment:** Docker, Docker Compose, Redis (cache em container)
+- **Deployment:** Docker, Docker Compose
 - **Testing:** Pytest
 
 ## 🤝 Contribuindo

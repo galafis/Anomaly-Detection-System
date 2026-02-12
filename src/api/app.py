@@ -323,7 +323,7 @@ def status():
     return jsonify(
         {
             "status": "healthy",
-            "version": "2.0.0",
+            "version": "1.0.0",
             "algorithms_available": list(detector.models.keys()),
             "features_expected": detector.feature_count,
             "is_training": detector.is_training,

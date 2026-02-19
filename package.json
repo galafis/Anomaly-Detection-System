@@ -1,0 +1,40 @@
+{
+  "name": "anomaly-detection-system",
+  "version": "1.0.0",
+  "description": "> Scalable anomaly detection system using statistical methods, isolation forests, autoencoders, and time-series analysis. Designed for monitoring infrastructure, transactions, and IoT data.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@": "*",
+    "@eslint": "*",
+    "@radix-ui": "*",
+    "@tailwindcss": "*",
+    "@vitejs": "*",
+    "chart.js": "*",
+    "class-variance-authority": "*",
+    "clsx": "*",
+    "cmdk": "*",
+    "embla-carousel-react": "*",
+    "eslint-plugin-react-hooks": "*",
+    "eslint-plugin-react-refresh": "*",
+    "globals": "*",
+    "input-otp": "*",
+    "lucide-react": "*",
+    "next-themes": "*",
+    "react": "*",
+    "react-day-picker": "*",
+    "react-dom": "*",
+    "react-hook-form": "*",
+    "react-resizable-panels": "*",
+    "recharts": "*",
+    "sonner": "*",
+    "tailwind-merge": "*",
+    "vaul": "*"
+  },
+  "devDependencies": {
+    "vite": "*"
+  }
+}
